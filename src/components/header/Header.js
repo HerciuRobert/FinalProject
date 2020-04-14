@@ -5,7 +5,7 @@ function Header(props) {
     const a = 'Robert';
     return (
         <header>
-            <h1>EventPlanner/Logo</h1>
+            <h1>E-Z Planner/Logo</h1>
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
