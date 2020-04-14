@@ -1,0 +1,24 @@
+{
+    "users": [],
+    "restaurants": [
+      {
+        "id": 1,
+        "Name": "Sergiana",
+        "Location": "Citroen",
+        "Photo": "C4",
+        "Disponibility": 2013,
+        "Capacity": 420,
+        "Price": "3000"
+      },
+      {
+        "id": 2,
+        "name": "Tess Ballroom",
+        "Location": "Citroen",
+        "Photo": "C4",
+        "Disponibility": 2013,
+        "Capacity": 300,
+        "Price": "2500"
+      },
+     
+    ]
+  }
