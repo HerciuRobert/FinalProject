@@ -1,0 +1,45 @@
+.header-all {
+    /* background: linear-gradient(90deg, rgba(233,238,7,1) 0%, rgba(255,132,0,1) 100%); */
+    background: #400a58;
+    color: white;
+    display: flex;
+    font-family: Tahoma, Verdana, sans-serif;
+    box-shadow:  0px 5px 10px 0 rgba(55, 84, 170,.15),
+    inset 0px 0px 4px rgba(255, 255, 255,.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+    justify-content: space-between;
+
+}
+
+.header-menu {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.button-detail {
+    margin: 0px 10px;
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+.logo-style {
+    font-size: 2em;
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+
+a {
+    color: #FFF;
+    text-decoration: none;
+  }
+  a:hover {
+     color: #f5e9de;
+     text-decoration: none;
+  }

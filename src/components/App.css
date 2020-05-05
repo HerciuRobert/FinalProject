@@ -1,0 +1,119 @@
+:root {
+    background-color: #f5e9de;
+    margin: auto;
+}
+
+.main-style {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-content: space-between;
+    font-family: Tahoma, Verdana, sans-serif;
+    margin: 100px 50px 0px 50px;
+    width: 100%;
+    /* padding: 100% 100PX 20px 10px; */
+    
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: auto;
+    align-content: center;
+}
+
+.card {
+    display:flex;
+    flex-direction: row;
+    margin: 0px 20px 20px 20px;
+    padding: 20px;
+    /* border: 1px solid darkgrey; */
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 7px 7px 15px rgba(55, 84, 170,.15),
+    inset 0px 0px 4px rgba(255, 255, 255,.2);
+    width: 100%;
+}
+
+.card-body {
+    margin: 5px;
+    padding: auto;
+    text-align: center;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 7px 7px 15px rgba(55, 84, 170,.15),
+    inset 0px 0px 4px rgba(255, 255, 255,.2);
+
+}
+
+.inline-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: center;
+}
+
+.button-style {
+    background-color: #400a58;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    margin: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Tahoma, Verdana, sans-serif;
+    /* display: inline-block; */
+    font-size: 16px;
+    margin: 10px 10px;
+    cursor: pointer;
+    box-shadow: 7px 7px 15px rgba(55, 84, 170,.15),
+    inset 0px 0px 4px rgba(255, 255, 255,.2);
+
+}
+
+.button-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-around;
+    width: 100%
+}
+
+.body-button-style {
+    background-color: #400a58;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Tahoma, Verdana, sans-serif;
+    /* display: inline-block; */
+    font-size: 16px;
+    margin: 10px 10px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-rows: auto;
+    align-content: center;
+}
+
+
+.label {
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid darkgrey;
+     display: inline-block;
+     width: 50px;
+     height: 30px;
+}
