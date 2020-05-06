@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import axios from 'axios';
 
 import Header from './shared/Header';
@@ -13,7 +13,6 @@ import OtherList from './other/OtherList';
 import OtherDetails from './other/OtherDetails';
 import ReserveOther from './other/ReserveOther';
 import SideNav from './shared/SideNav';
-import CalendarList from './shared/CalendarList';
 import Register from './auth/Register';
 import Login from './auth/Login';
 import AuthContext from './auth/AuthContext';
@@ -23,15 +22,12 @@ import { apiUrl } from '../config';
 
 
 import './App.css';
-import 'react-calendar/dist/Calendar.css';
-import './Calendar.css';
 
 axios.defaults.baseURL = apiUrl;
 
 
 function App() {
     const [auth, setAuth] = useState(null);
-    const[desiredDate, setDesiredDate] = useState(null);
         //verific daca are in local storage token daca e facem set tokem cu ce vine din storage
     useEffect(() => {
         const auth = localStorage.getItem('auth');
@@ -53,34 +49,26 @@ function App() {
                     <Route exact path="/">
                     <SideNav />
                         <div>
-                            <div className="button-card">
-                                <Link className="body-button-style" to={ "/" } >Restaurants</Link>
-                                <Link className="body-button-style" to={ "/" } >Bands</Link>
-                                <Link className="body-button-style" to={ "/" } >Other</Link>
-                            </div>
-                            <div className="card">
+                            <div>
                                 <RestaurantList />
                             </div>
-                            <div className="card">
+                            <div>
                                 <BandList />
                             </div>
-                            <div className="card">
+                            <div>
                                 <OtherList />
                             </div>
                         </div>
-                        <CalendarList />
+
                     </Route>
                     <Route exact path="/restaurants/:restaurantId">
                         <RestaurantDetails />
-                        <CalendarList />
                     </Route>
                     <Route exact path="/bands/:bandId">
                         <BandDetails />
-                        <CalendarList />
                     </Route>
                     <Route exact path="/other/:otherId">
                         <OtherDetails />
-                        <CalendarList />
                     </Route>
                 </div>
                 <PrivateRoute exact path="/restaurants/reserve/:restaurantId/">

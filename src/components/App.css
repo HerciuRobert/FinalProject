@@ -22,12 +22,14 @@
 }
 
 .card {
-    display:flex;
-    flex-direction: row;
-    margin: 0px 20px 20px 20px;
-    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    align-content: center;
+    margin: 0px 50px 50px 50px;
+    padding: 50px;
     /* border: 1px solid darkgrey; */
-    border-radius: 20px;
+    border-radius: 0px 20px 20px 20px;
     background-color: white;
     box-shadow: 7px 7px 15px rgba(55, 84, 170,.15),
     inset 0px 0px 4px rgba(255, 255, 255,.2);
@@ -41,6 +43,20 @@
     border: 1px solid darkgrey;
     border-radius: 10px;
     background-color: white;
+    align-self: center;
+
+}
+
+.card-body-details {
+    position: center;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    align-self: center;
+    box-shadow: 7px 7px 15px rgba(55, 84, 170,.15),
+    inset 0px 0px 4px rgba(255, 255, 255,.2);
 }
 
 .side-nav {
@@ -58,6 +74,7 @@
 .inline-buttons {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
     position: center;
 }
@@ -68,7 +85,7 @@
     border-radius: 20px;
     color: white;
     margin: 10px;
-    padding: 10px 20px;
+    padding: 10px 20px 10px 20px;
     text-align: center;
     text-decoration: none;
     font-family: Tahoma, Verdana, sans-serif;
@@ -81,14 +98,20 @@
 
 }
 
-.button-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-around;
-    width: 100%
+.category-button {
+    display: flex;
+    flex-direction: column;
+    margin: 500px auto 20px 50px;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    width: 100px;
 }
 
 .body-button-style {
+    display: flex;
+    flex-direction: column;
+
     background-color: #400a58;
     border: none;
     border-radius: 10px;
@@ -98,14 +121,11 @@
     text-align: center;
     text-decoration: none;
     font-family: Tahoma, Verdana, sans-serif;
-    /* display: inline-block; */
+    display: inline-block;
     font-size: 16px;
     margin: 10px 10px;
     cursor: pointer;
-    display: grid;
-    grid-template-columns: 2fr 2fr 2fr;
-    grid-template-rows: auto;
-    align-content: center;
+
 }
 
 
@@ -116,4 +136,14 @@
      display: inline-block;
      width: 50px;
      height: 30px;
+}
+
+.visualized-category {
+    text-align: center;
+    color: #400a58;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 20px 20px 0px 0px;
+    width: 20%;
+    margin-inline-start: 50px;
 }

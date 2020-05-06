@@ -14,9 +14,6 @@
     inset 0px 0px 4px rgba(255, 255, 255,.2);
     font-family: Tahoma, Verdana, sans-serif;
     line-height: 2em;
-    margin: auto;
-    right: 140px;
-    position: fixed;
   }
   
   .right-buttons {
@@ -48,20 +45,10 @@
     
 }
 
-.react-calendar__tile {
-  padding: 15px;
-  border-radius: 30px;
-}
-.react-calendar__navigation {
-  border-radius: 30px;
+.react-datepicker-popper {
+  border-radius: 20px;
 }
 
-.react-calendar__tile--active, .react-calendar__tile--rangeStart, .react-calendar__tile--hasActive {
+.react-datepicker__day--today {
   background-color: #400a58;
-  color: white;
-}
-
-.react-calendar__tile--now {
-  background-color: #f5e9de;
-  color: black;
 }

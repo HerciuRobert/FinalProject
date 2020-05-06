@@ -7,8 +7,6 @@ function RestaurantCard({ location }) {
     
     const { auth } = useContext(AuthContext);
 
-
-
     return (
             <div className="card-body">
                 <img className="card-img" alt="Restaurant" src={ location.photo } />
@@ -29,6 +27,7 @@ function RestaurantCard({ location }) {
                         )
                     }
                     <Link to={ '/restaurants/' + location.id } className="button-style">Details</Link>
+
                 </div>
             </div>
     );

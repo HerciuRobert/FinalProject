@@ -17,9 +17,14 @@ function BandList() {
         setBands(res.data);
     }
     return (
-        <div>  
-            { bands.map(band => <BandCard banda={ band } />) }
-        </div>
+        <>
+            <div className="visualized-category">
+                <h1>Bands</h1>
+            </div>
+            <div className="card">  
+                { bands.map(band => <BandCard banda={ band } key={band.id}/>) }
+            </div>
+        </>
     );
 }
   

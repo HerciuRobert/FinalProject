@@ -22,7 +22,7 @@ function SideNav({ event }) {
                     <h3>My event</h3>
                     <h4>Restaurant</h4>
                     <p>Restaurant expenses:</p>
-                    <label for="participant-number">Number of participants:</label> <input type="number" id="participant-number" className="label" placeholder="0" />
+                    <label htmlFor="participant-number">Number of participants:</label> <input type="number" id="participant-number" className="label" placeholder="0" />
                     <h4>Band</h4>
                     <p>Band expenses:</p>
                     <h3>Other</h3>

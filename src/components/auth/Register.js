@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useLocation, useHistory } from 'react-router-dom';
 
@@ -46,7 +45,6 @@ function Register() {
     const [isDirty, setDirty] = useState(false);
 
     const { setAuth } = useContext(AuthContext);
-    const { auth } = useContext(AuthContext);
 
 
     // async function getUsersById(id) {

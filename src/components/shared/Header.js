@@ -1,26 +1,24 @@
-import React, { useContext, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
-import axios from 'axios';
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import AuthContext from '../auth/AuthContext';
 
 import './Header.css';
 
 
-function Header(props) {
+function Header() {
     const { auth, setAuth } = useContext(AuthContext);
-    const {user, setUser} = useState('')
+    // const {user, setUser} = useState('')
     
     function handleLogout(e) {
         e.preventDefault();
-
         setAuth(null);
         localStorage.removeItem('auth');
     }
 
-        async function getUsersById(e) {
-        const res= await axios.get('http://localhost:5000/users?firstname=' + e.currentTarget.firstname);
-        setUser(res.data.firstname);
-    }
+    //     async function getUsersById(e) {
+    //     const res= await axios.get('http://localhost:5000/users?firstname=' + e.currentTarget.firstname);
+    //     setUser(res.data.firstname);
+    // }
 
     return (
         <header className="header-all">
@@ -30,7 +28,7 @@ function Header(props) {
                     {( auth ?
                         <>
                         <li className="button-detail">
-                        <NavLink  activeClassName="active" exact to="/">Home { user }</NavLink>    
+                        <NavLink  activeClassName="active" exact to="/">Home</NavLink>    
                         </li>
                         <a href="/" className="button-detail" onClick = { handleLogout }> Logout</a>
                         </>

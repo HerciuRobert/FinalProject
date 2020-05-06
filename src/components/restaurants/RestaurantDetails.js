@@ -21,7 +21,7 @@ function RestaurantDetails() {
 
     if(restaurant) {
         return (
-            <div className="card-body">
+            <div className="card-body-details">
                 <h1>{ restaurant.name }</h1>
                 <img className="card-img" alt="Restaurant image" src={ restaurant.photo } />
                 <p><strong>Location: </strong>{ restaurant.location }</p>

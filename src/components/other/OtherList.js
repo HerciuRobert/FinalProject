@@ -18,9 +18,14 @@ function OtherList() {
     }
     
     return (
-        <div>  
-            { other.map(other => <OtherCard distractions={ other } />) }
-        </div>
+        <>
+            <div className="visualized-category">
+                <h1>Activities</h1>
+            </div>
+            <div className="card">  
+                { other.map(other => <OtherCard distractions={ other } key={other.id}/>) }
+            </div>
+        </>
     );
 }
   

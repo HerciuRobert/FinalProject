@@ -2,13 +2,175 @@
   "users": [
     {
       "email": "herciu.robert@gmail.com",
-      "firstname": "",
-      "lastname": "",
+      "firstname": "Robert",
+      "lastname": "Herciu",
       "password": "123",
+      "retype-password": "123",
       "id": 1
     }
   ],
   "reservations": [
+  ],
+  "notavailable_restaurants": [
+    {
+      "id": 1,
+      "restaurantId": 1,
+      "busy": "1#28/06/2020"
+    },
+    {
+      "id": 2,
+      "restaurantId": 2,
+      "busy": "2#27/06/2020"
+    },
+    {
+      "id": 3,
+      "restaurantId": 3,
+      "busy": "3#17/05/2020"
+    },
+    {
+      "id": 4,
+      "restaurantId": 4,
+      "busy": "4#16/05/2020"
+    },
+    {
+      "id": 5,
+      "restaurantId": 5,
+      "busy": "5#27/06/2020"
+    },
+    {
+      "id": 6,
+      "restaurantId": 5,
+      "busy": "5#26/07/2020"
+    },
+    {
+      "id": 7,
+      "restaurantId": 6,
+      "busy": "6#16/05/2020"
+    },
+    {
+      "id": 8,
+      "restaurantId": 7,
+      "busy": "7#27/06/2020"
+    },
+    {
+      "id": 9,
+      "restaurantId": 7,
+      "busy": "7#28/06/2020"
+    },
+    {
+      "id": 10,
+      "restaurantId": 8,
+      "busy": "8#28/06/2020"
+    },
+    {
+      "id": 11,
+      "restaurantId": 9,
+      "busy": "9#17/05/2020"
+    },
+    {
+      "id": 12,
+      "restaurantId": 10,
+      "busy": "10#16/05/2020"
+    },
+    {
+      "id": 12,
+      "restaurantId": 10,
+      "busy": "10#27/06/2020"
+    }
+  ],
+  "notavailable_bands": [
+    {
+      "id": 1,
+      "bandId": 1,
+      "busy": "1#24/05/2020"
+    },
+    {
+      "id": 2,
+      "bandId": 2,
+      "busy": "2#30/05/2020"
+    },
+    {
+      "id": 3,
+      "bandId": 3,
+      "busy": "3#16/05/2020"
+    },
+    {
+      "id": 4,
+      "bandId": 4,
+      "busy": "4#16/05/2020"
+    },
+    {
+      "id": 5,
+      "bandId": 4,
+      "busy": "4#24/06/2020"
+    },
+    {
+      "id": 6,
+      "bandId": 5,
+      "busy": "5#17/05/2020"
+    },
+    {
+      "id": 7,
+      "bandId": 5,
+      "busy": "5#23/05/2020"
+    }
+  ],
+  "notavailable_other": [
+    {
+      "id": 1,
+      "otherId": 1,
+      "busy": "1#17/05/2020"
+    },
+    {
+      "id": 2,
+      "otherId": 1,
+      "busy": "1#27/06/2020"
+    },
+    {
+      "id": 3,
+      "otherId": 2,
+      "busy": "2#16/05/2020"
+    },
+    {
+      "id": 4,
+      "otherId": 2,
+      "busy": "2#23/05/2020"
+    },
+    {
+      "id": 5,
+      "otherId": 2,
+      "busy": "2#24/05/2020"
+    },
+    {
+      "id": 6,
+      "otherId": 2,
+      "busy": "2#28/06/2020"
+    },
+    {
+      "id": 7,
+      "otherId": 3,
+      "busy": "3#13/06/2020"
+    },
+    {
+      "id": 8,
+      "otherId": 3,
+      "busy": "3#21/06/2020"
+    },
+    {
+      "id": 9,
+      "otherId": 3,
+      "busy": "3#27/06/2020"
+    },
+    {
+      "id": 10,
+      "otherId": 4,
+      "busy": "4#16/05/2020"
+    },
+    {
+      "id": 11,
+      "otherId": 4,
+      "busy": "4#27/06/2020"
+    }
   ],
   "restaurants": [
     {
@@ -16,9 +178,6 @@
       "name": "Tess Ballroom - Salon Grand",
       "location": "Calea Brasovului 2, Ghimbav, Romania",
       "photo": "./images/Tessballroom.jpg",
-      "_notavailable": {
-        "dateID": "28-6-2020"
-      },
       "capacity": 280,
       "price": 92,
       "rating": 4.8,
@@ -30,11 +189,6 @@
       "name": "Sergiana Event Center - Salonul Ivory",
       "location": "Centru Civic, Mihail Kogalniceanu 15, Brasov, Romania",
       "photo": "./images/sergiana-ivory.jpg",
-      "_notavailable": [
-        {
-          "dateID": "27-6-2020"
-        }
-      ],
       "capacity": 650,
       "price": 95,
       "rating": 4.1,
@@ -46,11 +200,6 @@
       "name": "Sergiana Event Center - Salonul Argintiu",
       "location": "Centru Civic, Mihail Kogalniceanu 15, Brasov, Romania",
       "photo": "./images/sergiana-argintiu.jpg",
-      "_notavailable": [
-        {
-          "dateID": "17-5-2020"
-        }
-      ],
       "capacity": 150,
       "price": 85,
       "rating": 4.2,
@@ -62,11 +211,6 @@
       "name": "Sergiana Event Center - Salonul Auriu",
       "location": "Centru Civic, Mihail Kogalniceanu 15, Brasov, Romania",
       "photo": "https://picsum.photos/300/200",
-      "_notavailable": [
-        {
-          "dateID": "16-5-2020"
-        }
-      ],
       "capacity": 260,
       "price": 90,
       "rating": 4.8,
@@ -78,14 +222,6 @@
       "name": "Sergiana Event Center - Salonul Pearl",
       "location": "Centru Civic, Mihail Kogalniceanu 15, Brasov, Romania",
       "photo": "https://picsum.photos/300/200",
-      "_notavailable": [
-        {
-          "dateID": "27-6-2020"
-        },
-        {
-          "dateID": "26-7-2020"
-        }
-      ],
       "capacity": 110,
       "price": 68,
       "rating": 4,
@@ -97,11 +233,6 @@
       "name": "Complex 3 Stejari",
       "location": "Str. Col. Kiss Snador nr. 102, Dambu' Morii, Romania",
       "photo": "https://picsum.photos/300/200",
-      "_notavailable": [
-        {
-          "dateID": "16-5-2020"
-        }
-      ],
       "capacity": 170,
       "price": 70,
       "rating": 4.4,
@@ -113,14 +244,6 @@
       "name": "Restaurant Ambient",
       "location": "Bulevardul Iuliu Maniu Nr. 27, Brasov, Romania",
       "photo": "https://picsum.photos/300/200",
-      "_notavailable": [
-        {
-          "dateID": "27-6-2020"
-        },
-        {
-          "dateID": "28-6-2020"
-        }
-      ],
       "capacity": 150,
       "price": 78,
       "rating": 4.2,
@@ -132,11 +255,6 @@
       "name": "Grand Restaurant - Salon Modern",
       "location": "Str. Mihail Kogalniceanu Nr. 15, Brasov, Romania",
       "photo": "https://picsum.photos/300/200",
-      "_notavailable": [
-        {
-          "dateID": "28-6-2020"
-        }
-      ],
       "capacity": 350,
       "price": 75,
       "rating": 4.4,
@@ -148,11 +266,6 @@
       "name": "Ramada by Wyndham Brasov",
       "location": "Calea Bucurestiului, Nr. 13, Sacele, Brasov, Romania",
       "photo": "https://picsum.photos/300/200",
-      "_notavailable": [
-        {
-          "dateID": "17-5-2020"
-        }
-      ],
       "capacity": 210,
       "price": 65,
       "rating": 3.6,
@@ -164,14 +277,6 @@
       "name": "Restaurant Garden Club",
       "location": "Bulevardul Grivitei, Nr. A48, Stupini, Romania",
       "photo": "https://picsum.photos/300/200",
-      "_notavailable": [
-        {
-          "dateID": "16-5-2020"
-        },
-        {
-          "dateID": "27-6-2020"
-        }
-      ],
       "capacity": 220,
       "price": 82,
       "rating": 4.3,
@@ -184,11 +289,6 @@
       "id": 1,
       "name": "Charm Band",
       "photo": "https://picsum.photos/300/200",
-      "_notavailable": [
-        {
-          "dateID": "24-6-2020"
-        }
-      ],
       "price": 2000,
       "description": "Trupa de cover Charm Band susține show-uri 100% Live, pentru toate tipurile de petreceri private: nunți, botezuri, petreceri corporate, dar și concerte private. Avem evenimente in toată tara, așadar vom fi fericiți sa venim și in orașul tău. Specializați in evenimente artistice, va stam la dispozitie cu cele mai diverse genuri muzicale, de la muzica anilor ‘70 și pana la cele mai noi hituri.",
       "contact": "0766 345 724"
@@ -206,11 +306,6 @@
       "id": 3,
       "name": "Trupa Lov",
       "photo": "https://picsum.photos/300/200",
-      "_notavailable": [
-        {
-          "dateID": "16-5-2020"
-        }
-      ],
       "price": 2500,
       "description": "Avem un playlist de petrecere variat si inedit, adaptabil oricarei tematici de nunta, astfel ca invitatii tai se vor simti nu doar ca la cea mai tare petrecere alaturi de o super trupa, ci vor trai un memorabil spectacol live direct pe ringul de dans.",
       "contact": "0769 219 050"
@@ -219,14 +314,6 @@
       "id": 4,
       "name": "Nicoleta Oancea & Band",
       "photo": "https://picsum.photos/300/200",
-      "_notavailable": [
-        {
-          "dateID": "16-5-2020"
-        },
-        {
-          "dateID": "24-6-2020"
-        }
-      ],
       "price": 3700,
       "description": "Nicoleta Oancea & Band este o trupa de cover formata din 6 muzicieni talentati, cu experienta care au concertat pe scene din intreaga tara. Echipa noastra este formata din solist vocal, backing vocals, basist, chitarist, clapar/pianist, tobosar si are in spate un staff complet: booking agent, inginer de sunet, tehnicieni, tour manager. Pentru a oferi un spectacol pe masura, colaboram doar cu oameni profesionisti, incepand de la echipa tehnica (sunet, scena, lumini) pana la DJ, oameni pasionati care se implica in meseria lor.",
       "contact": "0722 179 782"
@@ -235,14 +322,6 @@
       "id": 5,
       "name": "Blacklight Band",
       "photo": "https://picsum.photos/300/200",
-      "_notavailable": [
-        {
-          "dateID": "17-5-2020"
-        },
-        {
-          "dateID": "23-5-2020"
-        }
-      ],
       "price": 2800,
       "description": "Formatie nunta din Bucuresti, cover band, trupa cover sau alchimisti ai bunei dispozitii, oricum ati vrea sa ne numim – Blacklight Band este o echipa de muzicieni cu palmares bogat, intalniți si pe marile scene, figuri cunoscute publicului si in urma multor aparitii televizate. Abilitatile muzicale ale membrilor le permit abordarea unui repertoriu foarte variat, cantat in engleza, romana, italiana, spaniola, ce strabate o paleta stilistica multicolora, de la marile hituri internationale pana la indragitele melodii romanesti, trecand prin pop music, disco, dance, blues, rock, rhythm and blues, soul, reggae, cantece italiene si latino; de la piese nemuritoare pana la ultimele aparitii ! Cu alte cuvinte, formatie pentru evenimente la superlativ !",
       "contact": "0744 326 258"
@@ -254,14 +333,6 @@
       "name": "Make-up Artist & Hairstyle",
       "photo": "https://picsum.photos/300/200",
       "price": 75,
-      "_notavailable": [
-        {
-          "dateID": "17-5-2020"
-        },
-        {
-          "dateID": "27-6-2020"
-        }
-      ],
       "contact": "0725 326 429"
     },
     {
@@ -269,20 +340,6 @@
       "name": "Lasting Events Photo Booth",
       "photo": "https://picsum.photos/300/200",
       "price": 500,
-      "_notavailable": [
-        {
-          "dateID": "16-5-2020"
-        },
-        {
-          "dateID": "23-5-2020"
-        },
-        {
-          "dateID": "24-5-2020"
-        },
-        {
-          "dateID": "28-6-2020"
-        }
-      ],
       "contact": "0799 980 921"
     },
     {
@@ -290,20 +347,6 @@
       "name": "Flawless Events",
       "photo": "https://picsum.photos/300/200",
       "price": 2400,
-      "_notavailable": [
-        {
-          "dateID": "16-5-2020"
-        },
-        {
-          "dateID": "13-6-2020"
-        },
-        {
-          "dateID": "21-6-2020"
-        },
-        {
-          "dateID": "27-6-2020"
-        }
-      ],
       "contact": "0758 527 359"
     },
     {
@@ -311,20 +354,6 @@
       "name": "Foto y Cafe",
       "photo": "https://picsum.photos/300/200",
       "price": 800,
-      "_notavailable": [
-        {
-          "dateID": "16-5-2020"
-        },
-        {
-          "dateID": "24-5-2020"
-        },
-        {
-          "dateID": "27-6-2020"
-        },
-        {
-          "dateID": "28-6-2020"
-        }
-      ],
       "contact": "0766 610 055"
     }
   ]
