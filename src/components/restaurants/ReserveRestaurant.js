@@ -13,7 +13,9 @@ import '../Calendar.css';
 function ReserveRestaurant() {
     const { restaurantId } = useParams();
     const [reservations, setReservations] = useState(null);
-    const [unavailableDate, setUnavailableDate] = useState([]);
+    const [restaurantInfo, setRestaurantInfo] = useState([]);
+
+
 
     const { auth } = useContext(AuthContext);
     const [date, setDate] = useState(new Date());
@@ -26,12 +28,12 @@ function ReserveRestaurant() {
         // getUnavailableById();
     }
 
-    function isDateAvailable(e) {
+    async function isDateAvailable(e) {
         e.preventDefault();
-        if (getCheckIfAvailable(formatDate(date), restaurantId)) {
+        if(await getCheckIfAvailable(formatDate(date), restaurantId)) {
             handleReservation();
         } else {
-            console.warn('This date is not available!');
+            console.log('This date is not available!');
         }
     }
 
@@ -43,16 +45,18 @@ function ReserveRestaurant() {
         return day + '/0' + month + '/' + year;
     };
 
+    
+
     async function getCheckIfAvailable(selectedDate, id) {
         console.log('DATA SELECTATA: ' + selectedDate)
         const res =  await axios('/notavailable_restaurants');
         res.data.forEach(element => {
             const entry = element.busy;
             if (entry.startsWith(id)) {
-                const split = entry.split("#");
-                console.log('DATA OCUPATA: ' + split[1]);
-                if (selectedDate === split[1]) {
-                    console.log('ocupat')
+                const split = entry.split("#")[1];
+                console.log('DATA OCUPATA: ' + split);
+                if (selectedDate === split) {
+                    console.log('busy')
                     return false;
                 }
             }
@@ -60,9 +64,15 @@ function ReserveRestaurant() {
         return true;
     }
 
+
+
+    
+    
+
+
     // async function getUnavailableById(id) {
     //     try{
-    //         const links= await axios('/notavailable_restaurants/' )
+    //         const links= await axios('/notavailable_restaurants' )
     //             .then(res => res.data);
 
     //         const promises = links.map(link => axios('/restaurants/' + link.restaurantId)
@@ -75,15 +85,17 @@ function ReserveRestaurant() {
     //     }
     // }
 
-    async function handleReservation() {
+    async function handleReservation() { 
         const res = await axios('/reservations/', {
             method: 'POST',
             data: {
                 'id': '',
                 'event_name': "My event",
-                'userEmail': auth,
+                'user_email': auth,
                 'restaurantId': restaurantId,
-                'dateId': formatDate(date)
+                'date': formatDate(date),
+                'restaurantName': restaurantInfo.name,
+                'restaurantPrice': restaurantInfo.price
             },
         })
         setReservations(res.data);
@@ -92,8 +104,9 @@ function ReserveRestaurant() {
 
     async function getRestaurantById(id) {
         const res = await axios('/restaurants/' + id);
-    //    setReservations(res.data);
+       setRestaurantInfo(res.data);
     }
+
 
     useEffect(() => {
         handleDateChange(date);
@@ -103,12 +116,6 @@ function ReserveRestaurant() {
     useEffect(() => {
         getRestaurantById(restaurantId);
     }, [restaurantId]);
-
-
-
-    // if (!reservations) {
-    //     return <h1>Loading...</h1>;
-    // }
 
     return (
         <div className="register-login-card">

@@ -78,10 +78,8 @@ function Login() {
         .then(res => res.data);
 
         if(auth.length) {
-            console.log(auth);
             setAuth(formData.email);
             localStorage.setItem('auth', formData.email);
-            localStorage.setItem('name', formData.email.firstname);
             setSuccessful(true);
             history.replace(from);
             return true;

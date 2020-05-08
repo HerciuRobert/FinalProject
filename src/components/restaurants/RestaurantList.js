@@ -4,7 +4,6 @@ import RestaurantCard  from "./RestaurantCard";
 
 
 
-
 function RestaurantList() {
 
     let [restaurants, setRestaurants] = useState([]);

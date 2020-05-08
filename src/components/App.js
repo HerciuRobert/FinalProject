@@ -45,10 +45,11 @@ function App() {
             <BrowserRouter>
                 <Header />
                 <div className="main-style">
-
                     <Route exact path="/">
-                    <SideNav />
                         <div>
+                            <div>
+                                <SideNav />
+                            </div>
                             <div>
                                 <RestaurantList />
                             </div>
