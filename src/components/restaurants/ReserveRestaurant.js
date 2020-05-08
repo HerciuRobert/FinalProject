@@ -50,40 +50,20 @@ function ReserveRestaurant() {
     async function getCheckIfAvailable(selectedDate, id) {
         console.log('DATA SELECTATA: ' + selectedDate)
         const res =  await axios('/notavailable_restaurants');
-        res.data.forEach(element => {
+        let available = true;
+        res.data.find(element => {
             const entry = element.busy;
-            if (entry.startsWith(id)) {
-                const split = entry.split("#")[1];
-                console.log('DATA OCUPATA: ' + split);
-                if (selectedDate === split) {
+            const reservedRestaurantId=entry.split("#")[0];
+            const reservedDate=entry.split("#")[1];
+            // debugger;
+                if (selectedDate === reservedDate && reservedRestaurantId === id) {
+                    console.log('DATA OCUPATA: ' + reservedDate);
                     console.log('busy')
-                    return false;
-                }
-            }
+                    available = false;
+                }           
         });
-        return true;
+        return available;
     }
-
-
-
-    
-    
-
-
-    // async function getUnavailableById(id) {
-    //     try{
-    //         const links= await axios('/notavailable_restaurants' )
-    //             .then(res => res.data);
-
-    //         const promises = links.map(link => axios('/restaurants/' + link.restaurantId)
-    //             .then(res => res.data));
-    //         const unavailable = await Promise.all(promises);
-    //         console.log('unavailable', unavailable);
-    //         setUnavailableDate(unavailable);
-    //     } catch(e) {
-    //         console.warn(e)
-    //     }
-    // }
 
     async function handleReservation() { 
         const res = await axios('/reservations/', {
@@ -117,17 +97,32 @@ function ReserveRestaurant() {
         getRestaurantById(restaurantId);
     }, [restaurantId]);
 
+    useEffect(() => {
+        getRestaurantReservationByUserId(auth);
+    }, [auth]);
+
+    let [reservedRestaurant, setReservedRestaurant] = useState([]);
+
+    async function getRestaurantReservationByUserId(id) {
+        const reservation = await axios.get('/reservations/?user_email=' + auth).then(res => res.data);
+        console.log(reservation)
+        setReservedRestaurant(reservation);
+    }
+
     return (
         <div className="register-login-card">
-            {/* <form onSubmit={ handleReservation } className="form-control">      */}
-            <form onSubmit={isDateAvailable} className="form-control">
+            {
+                reservedRestaurant.length >= 1 ? <h1> You already have a reservation at {reservedRestaurant[0].restaurantName} on {reservedRestaurant[0].date} </h1> : 
+                <form onSubmit={isDateAvailable} className="form-control">
                 <div >
-                    <h1> The reservation is almost done!</h1>
+                    <h1> Your reservation at {restaurantInfo.name} is almost done!</h1>
                     <label htmlFor="name">Please select the desired date: </label>
                     <DatePicker selected={date} onChange={handleDateChange} locale="en-GB" dateFormat="dd/MM/yyyy" className={'input-form'} />
                     <button type="submit" className="auth-button-style" >Reserve</button>
                 </div>
             </form>
+            }
+
         </div>
     )
 }

@@ -45,11 +45,9 @@ function App() {
             <BrowserRouter>
                 <Header />
                 <div className="main-style">
+                <SideNav />
                     <Route exact path="/">
                         <div>
-                            <div>
-                                <SideNav />
-                            </div>
                             <div>
                                 <RestaurantList />
                             </div>

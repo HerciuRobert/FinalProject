@@ -75,17 +75,25 @@ function Login() {
 
     async function checkDatabaseUser() {
         const auth = await axios.get('/users?email=' + formData.email)
-        .then(res => res.data);
-
-        if(auth.length) {
-            setAuth(formData.email);
-            localStorage.setItem('auth', formData.email);
-            setSuccessful(true);
-            history.replace(from);
-            return true;
+            .then(res => res.data);
+        if (auth.length) {
+            if (auth[0].password === formData.password) {
+                setAuth(formData.email);
+                localStorage.setItem('auth', formData.email);
+                setSuccessful(true);
+                history.replace(from);
+                return true;
+            }
+            else {
+                console.log("Invalid password")
+                setGlobalError('Invalid password')
+                return false;
+            }
         }
-        setGlobalError('This account doesn\'t exist!')
-        return false;
+        else {
+            setGlobalError('Invalid credentials!')
+            return false;
+        }
     }
     
 
@@ -123,7 +131,7 @@ function Login() {
                     <div className="register-login-card">
                         { (globalErrorMessage ?
                             <div className="invalid-feedback">
-                                This account doesn't exists!
+                                Invalid credentials!
                             </div>
                         : null) }
                         { (isSuccesful ?
