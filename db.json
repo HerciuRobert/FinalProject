@@ -16,7 +16,21 @@
       "id": 2
     }
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "id": 1,
+      "event_name": "My event",
+      "user_email": "herciu.robert@gmail.com",
+      "restaurantId": "1",
+      "date": "10/05/2020",
+      "restaurantName": "Tess Ballroom - Salon Grand",
+      "restaurantPrice": 92,
+      "bandName": "Charm Band",
+      "bandPrice": 2000,
+      "otherName": "Make-up Artist & Hairstyle",
+      "otherPrice": 75
+    }
+  ],
   "notavailable_restaurants": [
     {
       "id": 1,
@@ -82,6 +96,11 @@
       "id": 12,
       "restaurantId": 10,
       "busy": "10#27/06/2020"
+    },
+    {
+      "id": 13,
+      "restaurantId": "1",
+      "busy": "1#10/05/2020"
     }
   ],
   "notavailable_bands": [
@@ -119,6 +138,11 @@
       "id": 7,
       "bandId": 5,
       "busy": "5#23/05/2020"
+    },
+    {
+      "id": 8,
+      "bandId": "1",
+      "busy": "1#10/05/2020"
     }
   ],
   "notavailable_other": [
@@ -176,6 +200,11 @@
       "id": 11,
       "otherId": 4,
       "busy": "4#27/06/2020"
+    },
+    {
+      "id": 12,
+      "otherId": "1",
+      "busy": "1#10/05/2020"
     }
   ],
   "restaurants": [

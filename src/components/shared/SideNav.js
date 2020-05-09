@@ -30,6 +30,15 @@ function SideNav() {
         getRestaurantReservationByUserId(auth);
     }, [auth]);
 
+    function updateEventName(newName) {
+        const res =  axios('/reservations/' + reservedRestaurant[0].id, {
+            method: 'PATCH',
+            data: {
+                'event_name':newName,
+            },
+        })
+    }
+
     async function handleDeleteEvent(e) {
      await axios.delete('/reservations/' + reservedRestaurant[0].id )
      window.location.reload();
@@ -42,9 +51,10 @@ function SideNav() {
                     <article className="side-nav">
                         <div>
                             {reservedRestaurant.map((list) =>
-                                <h1 onChange={getRestaurantReservationByUserId} key={`${list.event_name}`}>{list.event_name} </h1>)
+                                <h1 onChange={getRestaurantReservationByUserId} key={`${list.event_name}`}>{list.event_name} </h1>
+                                
 
-                            }
+                            )}
 
                             {(reservedRestaurant.length && auth ?
                                 <Link className="button-style" to={"/edit-event-name"}>Edit event name</Link>
@@ -64,7 +74,7 @@ function SideNav() {
                             </h4>
 
                             {reservedRestaurant.map((list)  =>
-                                <h4 onChange={getRestaurantReservationByUserId} key={`${list.restaurantPrice}`}>Restaurant expenses: {list.restaurantPrice} &euro;</h4>)
+                                <p onChange={getRestaurantReservationByUserId} key={`${list.restaurantPrice}`}>Restaurant expenses: {list.restaurantPrice} &euro;</p>)
 
                             }
 
@@ -77,13 +87,20 @@ function SideNav() {
                                 min="1"
                                 value="1"
                             />
-
-                            <h4>Band: band.name</h4>
-                            <p>Band expenses: restaurant.price</p>
-                            <h4>Activity:</h4>
-                            <p>Activity expenses: other.price</p>
                             {reservedRestaurant.map((list) =>
-                                <h4 onChange={getRestaurantReservationByUserId} key={`${list.restaurantPrice}`}>Total expenses: {list.restaurantPrice}</h4>)
+                            <h4 onChange={getRestaurantReservationByUserId} key={`${list.bandName}`}>Band: {list.bandName}</h4>
+                            )}
+                            {reservedRestaurant.map((list) =>
+                            <p onChange={getRestaurantReservationByUserId} key={`${list.bandPrice}`}>Band expenses: {list.bandPrice} &euro;</p>
+                            )}
+                            {reservedRestaurant.map((list) =>
+                            <h4 onChange={getRestaurantReservationByUserId} key={`${list.otherName}`}>Activity: {list.otherName}</h4>
+                            )}
+                            {reservedRestaurant.map((list) =>
+                            <p onChange={getRestaurantReservationByUserId} key={`${list.otherPrice}`}>Activity expenses: {list.otherPrice} &euro;</p>
+                            )}
+                            {reservedRestaurant.map((list) =>
+                                <h4 onChange={getRestaurantReservationByUserId} key={`${list.restaurantPrice}+${list.bandPrice}`}>Total expenses:  &euro;</h4>)
                             }
                             {(reservedRestaurant.length && auth ?
                                 <div>

@@ -2,109 +2,114 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import AuthContext from '../auth/AuthContext';
-import DatePicker, { registerLocale } from "react-datepicker";
-import en from 'date-fns/locale/en-GB';
-import "react-datepicker/dist/react-datepicker.css";
-
 
 import 'react-calendar/dist/Calendar.css';
 import '../Calendar.css';
 
 function ReserveBand() {
     const { bandId } = useParams();
-    const [reservations, setReservations] = useState(null);
     const [bandInfo, setBandInfo] = useState([]);
 
     const { auth } = useContext(AuthContext);
-    const [date, setDate] = useState(new Date());
 
-    registerLocale('en-GB', en);
-
-    function handleDateChange(date) {
-        setReservations({ ...reservations, value: date }); 
-        setDate(date);
-        // getUnavailableById();
-    }
-
-    async function isDateAvailable(e) {
-        e.preventDefault();
-        if(await getCheckIfAvailable(formatDate(date), bandId)) {
-            handleReservation();
-        } else {
-            console.log('This date is not available!');
-        }
-    }
-
-    function formatDate(date) {
-        const data = date;
-        const year = data.getFullYear();
-        const month = date.getMonth() + 1;
-        const day = ('0' + data.getDate()).slice(-2);
-        return day + '/0' + month + '/' + year;
-    };
-
-    
-
-    async function getCheckIfAvailable(selectedDate, id) {
-        console.log('DATA SELECTATA: ' + selectedDate)
-        const res =  await axios('/notavailable_bands');
-        res.data.forEach(element => {
-            const entry = element.busy;
-            if (entry.startsWith(id)) {
-                const split = entry.split("#")[1];
-                console.log('DATA OCUPATA: ' + split);
-                if (selectedDate === split) {
-                    console.log('busy')
-                    return false;
-                }
-            }
-        });
-        return true;
-    }
-
-
-    async function handleReservation() { 
-        const res = await axios('/reservations/', {
-            method: 'POST',
-            data: {
-                'id': '',
-                'event_name': "My event",
-                'user_email': auth,
-                'bandId': bandId,
-                'date': formatDate(date),
-                'bandName': bandInfo.name,
-                'bandPrice': bandInfo.price
-            },
-        })
-        setReservations(res.data);
-        console.log(res.data)
-    }
-
-    async function getBandById(id) {
-        const res = await axios('/restaurants/' + id);
-       setBandInfo(res.data);
-    }
+    const [currentReservation, setCurrentReservation] = useState([]);
+    const [isAvailable, setIsAvailable] = useState(true);
 
     useEffect(() => {
-        handleDateChange(date);
-        formatDate(date);
-    }, [date]);
+        getReservationByUserId(auth);
+    }, [auth]);
 
     useEffect(() => {
         getBandById(bandId);
     }, [bandId]);
 
+    async function isDateAvailable(e) {
+        e.preventDefault();
+        if (await isAvailable()) {
+            handleReservation();
+            window.location.reload();
+        } else {
+            console.log('This date is not available!');
+        }
+    }
+
+    window.onload = isDateAvailable();
+
+    async function isDateAvailable() {
+        if (currentReservation.length) {
+            console.log('DATA DEJA REZERVATA: ' + currentReservation[0].date)
+            const res = await axios('/notavailable_bands');
+            res.data.forEach(element => {
+                const entry = element.busy;
+                if (entry.startsWith(bandId)) {
+                    const split = entry.split("#")[1];
+                    console.log('DATA OCUPATA: ' + split);
+                    if (currentReservation[0].date === split) {
+                        console.log('busy')
+                        setIsAvailable(false);
+                        return false;
+                    }
+                }
+            });
+            return true;
+        }
+    }
+
+    async function handleReservation() {
+        const res = await axios('/reservations/' + currentReservation[0].id, {
+            method: 'PATCH',
+            data: {
+                'bandName': bandInfo.name,
+                'bandPrice': bandInfo.price
+            },
+        })
+        setDateAsUnavailable();
+        window.location.reload();
+        console.log(res.data);
+    }
+
+    async function setDateAsUnavailable(){
+        const res = await axios('/notavailable_bands/', {
+            method: 'POST',
+            data: {
+                'id': '',
+                'bandId': bandId,
+                'busy': bandId + "#" + currentReservation[0].date
+            },
+        })
+    }
+
+    async function getBandById(id) {
+        const res = await axios('/bands/' + id);
+        setBandInfo(res.data);
+    }
+
+    async function getReservationByUserId(id) {
+        const reservation = await axios.get('/reservations/?user_email=' + auth).then(res => res.data);
+        console.log(reservation)
+        setCurrentReservation(reservation);
+    }
 
     return (
         <div className="register-login-card">
-            <form onSubmit={isDateAvailable} className="form-control">
-                <div >
-                    <h1> The reservation is almost done!</h1>
-                    <label htmlFor="name">Please select the desired date: </label>
-                    <DatePicker selected={date} onChange={handleDateChange} locale="en-GB" dateFormat="dd/MM/yyyy" className={'input-form'} />
-                    <button type="submit" className="auth-button-style" >Reserve</button>
-                </div>
-            </form>
+            {
+
+                currentReservation.length < 1 ? <h1> You must have a restaurant reservation before booking a band </h1> :
+                    currentReservation[0].bandName ?
+                        <h1> You currently have a reservation at {currentReservation[0].bandName} on {currentReservation[0].date}.</h1>
+                        : isAvailable ?
+                            <form onSubmit={handleReservation} className="form-control">
+                                <div >
+
+                                    <h1> The band is available at on the date of your restaurant reservation, you can proceed booking {bandInfo.name} for your event!</h1>
+                                    <button type="submit" className="auth-button-style" >Reserve</button>
+
+                                </div>
+                            </form>
+                            :
+                            <h1> The band is not available on the date of your restaurant reservation 😞 </h1>
+            }
+
         </div>
     )
 }

@@ -47,9 +47,9 @@ function EditEventName() {
 
     return (
         <>
-            {/* {reservation.map((list) =>
+            {reservation.map((list) =>
                 <h1 key={`${list.event_name}`}>Edit event name { list.event_name }</h1>)
-            } */}
+            }
 
             <h1>Edit Event name</h1>
 
@@ -59,7 +59,7 @@ function EditEventName() {
                     <input 
                         onChange={ handleInputChange }
                         type="text"
-                        className="card"
+                        value=""
                         id="edit-event-name"
                         placeholder="Enter event name"
                     />
