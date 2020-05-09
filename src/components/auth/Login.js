@@ -43,13 +43,7 @@ function Login() {
 
         if(!isInvalid) {
             setDirty(false);
-            try {
-                const res = await axios.post('/users', formData);
-                    console.log(res);
-                } catch(e) {
-                    console.log('am ajuns aici');
-                }
-        }
+        }   
     }
 
     function validateData() {

@@ -1,41 +1,38 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import '../App.css';
+import { useLocation, useHistory, Link } from 'react-router-dom';
 import AuthContext from '../auth/AuthContext';
-
-// import ReserveRestaurant from '../restaurants/ReserveRestaurant';
-// import ReserveBand from '../bands/ReserveBand';
-// import ReserveOther from '../other/ReserveOther';
 import axios from 'axios';
+
+import '../App.css';
 
 
 function SideNav() {
     const { auth } = useContext(AuthContext);
 
     let [reservedRestaurant, setReservedRestaurant] = useState([]);
+    // const [participantsNumber, setParticipantsNumber] = useState('');
+
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
 
 
-    useEffect(() => {
-        getRestaurantReservationByUserId(auth);
-    }, [auth]);
 
     async function getRestaurantReservationByUserId(id) {
         const reservation = await axios.get('/reservations/?user_email=' + auth).then(res => res.data);
         console.log(reservation)
         setReservedRestaurant(reservation);
+        history.replace(from);
+
     }
 
-    function updateEventName(newName) {
-        const res =  axios('/reservations/' + reservedRestaurant[0].id, {
-            method: 'PATCH',
-            data: {
-                'event_name':newName,
-            },
-        })
-    }
+    useEffect(() => {
+        getRestaurantReservationByUserId(auth);
+    }, [auth]);
 
-    async function handleDeleteRestaurant(e) {
+    async function handleDeleteEvent(e) {
      await axios.delete('/reservations/' + reservedRestaurant[0].id )
+     window.location.reload();
     }
 
     return (
@@ -45,55 +42,56 @@ function SideNav() {
                     <article className="side-nav">
                         <div>
                             {reservedRestaurant.map((list) =>
-                                <h1 onLoad={getRestaurantReservationByUserId} key={`${list.event_name}`}>{list.event_name}</h1>)
+                                <h1 onChange={getRestaurantReservationByUserId} key={`${list.event_name}`}>{list.event_name} </h1>)
 
                             }
+
                             {(reservedRestaurant.length && auth ?
-                                <button className="button-style" onClick={updateEventName}>Edit event name</button>
+                                <Link className="button-style" to={"/edit-event-name"}>Edit event name</Link>
                                 :
                                 null
                             )}
+
+                            {reservedRestaurant.map((list) =>
+                                <h4 onChange={getRestaurantReservationByUserId} key={`${list.date}`}>Save the date: {list.date} </h4>)
+
+                            }
+
                             <h4>Restaurant:         {reservedRestaurant.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.restaurantName}`}>{list.restaurantName}</h4>)
+                                <div onChange={getRestaurantReservationByUserId} key={`${list.restaurantName}`}>{list.restaurantName}</div>)
 
                             }
                             </h4>
 
-                            <p>Restaurant expenses:         {reservedRestaurant.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.restaurantPrice}`}>{list.restaurantPrice}</h4>)
+                            {reservedRestaurant.map((list)  =>
+                                <h4 onChange={getRestaurantReservationByUserId} key={`${list.restaurantPrice}`}>Restaurant expenses: {list.restaurantPrice} &euro;</h4>)
 
                             }
-                            </p>
 
-                            <label htmlFor="participant-number">Number of participants:</label> <input type="number" id="participant-number" className="label" placeholder="1" min="1"/>
-                            {(reservedRestaurant.length && auth ?
-                                <div>
-                                    <a className="button-style" onClick={handleDeleteRestaurant}>Delete restaurant</a>
-                                </div>
-                                :
-                                null
-                            )}
+                            <label htmlFor="participant-number">Number of participants:</label> 
+                            <input 
+                                type="number" 
+                                id="participant-number" 
+                                className="label" 
+                                placeholder="1" 
+                                min="1"
+                                value="1"
+                            />
 
                             <h4>Band: band.name</h4>
                             <p>Band expenses: restaurant.price</p>
-                            {(reservedRestaurant.user_email == auth ?
-                                <div>
-                                    <a href="/proceed-to-checkout" className="button-style">Delete band</a>
-                                </div>
-                                :
-                                null
-                            )}
-                            <h3>Activity</h3>
+                            <h4>Activity:</h4>
                             <p>Activity expenses: other.price</p>
-                            {(reservedRestaurant.user_email == auth ?
+                            {reservedRestaurant.map((list) =>
+                                <h4 onChange={getRestaurantReservationByUserId} key={`${list.restaurantPrice}`}>Total expenses: {list.restaurantPrice}</h4>)
+                            }
+                            {(reservedRestaurant.length && auth ?
                                 <div>
-                                    <a href="/proceed-to-checkout" className="button-style">Delete activity</a>
+                                    <a className="button-style" onClick={handleDeleteEvent}>Delete event</a>
                                 </div>
                                 :
                                 null
                             )}
-
-                            <p><strong>Total expenses: (restaurant.price*{"participant-number".value})+band.price+other.price</strong></p>
                         </div>
                     </article>
                 </div>

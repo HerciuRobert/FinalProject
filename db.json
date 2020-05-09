@@ -7,6 +7,13 @@
       "password": "123",
       "retype-password": "123",
       "id": 1
+    },
+    {
+      "email": "herciu.robert@gmail.com",
+      "firstname": "",
+      "lastname": "",
+      "password": "12",
+      "id": 2
     }
   ],
   "reservations": [],
