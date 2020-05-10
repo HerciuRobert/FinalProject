@@ -14,21 +14,29 @@
       "lastname": "",
       "password": "12",
       "id": 2
+    },
+    {
+      "email": "a@a.com",
+      "firstname": "1",
+      "lastname": "1",
+      "password": "1",
+      "retype-password": "1",
+      "id": 3
     }
   ],
   "reservations": [
     {
       "id": 1,
       "event_name": "My event",
-      "user_email": "herciu.robert@gmail.com",
-      "restaurantId": "1",
-      "date": "10/05/2020",
-      "restaurantName": "Tess Ballroom - Salon Grand",
-      "restaurantPrice": 92,
-      "bandName": "Charm Band",
-      "bandPrice": 2000,
-      "otherName": "Make-up Artist & Hairstyle",
-      "otherPrice": 75
+      "user_email": "a@a.com",
+      "restaurantId": "2",
+      "date": "22/05/2020",
+      "restaurantName": "Sergiana Event Center - Salonul Ivory",
+      "restaurantPrice": 95,
+      "bandName": "Lovis Events",
+      "bandPrice": 3200,
+      "otherName": "Lasting Events Photo Booth",
+      "otherPrice": 500
     }
   ],
   "notavailable_restaurants": [
@@ -101,6 +109,26 @@
       "id": 13,
       "restaurantId": "1",
       "busy": "1#10/05/2020"
+    },
+    {
+      "id": 14,
+      "restaurantId": "2",
+      "busy": "2#10/05/2020"
+    },
+    {
+      "id": 15,
+      "restaurantId": "1",
+      "busy": "1#20/05/2020"
+    },
+    {
+      "id": 16,
+      "restaurantId": "2",
+      "busy": "2#21/05/2020"
+    },
+    {
+      "id": 17,
+      "restaurantId": "2",
+      "busy": "2#22/05/2020"
     }
   ],
   "notavailable_bands": [
@@ -143,6 +171,16 @@
       "id": 8,
       "bandId": "1",
       "busy": "1#10/05/2020"
+    },
+    {
+      "id": 9,
+      "bandId": "2",
+      "busy": "2#10/05/2020"
+    },
+    {
+      "id": 10,
+      "bandId": "2",
+      "busy": "2#22/05/2020"
     }
   ],
   "notavailable_other": [
@@ -205,6 +243,16 @@
       "id": 12,
       "otherId": "1",
       "busy": "1#10/05/2020"
+    },
+    {
+      "id": 13,
+      "otherId": "3",
+      "busy": "3#10/05/2020"
+    },
+    {
+      "id": 14,
+      "otherId": "2",
+      "busy": "2#22/05/2020"
     }
   ],
   "restaurants": [
