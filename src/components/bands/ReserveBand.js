@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import AuthContext from '../auth/AuthContext';
+import { useLocation, useHistory } from 'react-router-dom';
 
 import 'react-calendar/dist/Calendar.css';
 import '../Calendar.css';
@@ -11,6 +12,10 @@ function ReserveBand() {
     const [bandInfo, setBandInfo] = useState([]);
 
     const { auth } = useContext(AuthContext);
+
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
 
     const [currentReservation, setCurrentReservation] = useState([]);
     const [isAvailable, setIsAvailable] = useState(true);
@@ -64,6 +69,7 @@ function ReserveBand() {
             },
         })
         setDateAsUnavailable();
+        history.replace(from);
         window.location.reload();
         console.log(res.data);
     }

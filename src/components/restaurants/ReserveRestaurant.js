@@ -5,6 +5,7 @@ import AuthContext from '../auth/AuthContext';
 import DatePicker, { registerLocale } from "react-datepicker";
 import en from 'date-fns/locale/en-GB';
 import "react-datepicker/dist/react-datepicker.css";
+import { useLocation, useHistory } from 'react-router-dom';
 
 import 'react-calendar/dist/Calendar.css';
 import '../Calendar.css';
@@ -12,9 +13,14 @@ import '../Calendar.css';
 function ReserveRestaurant() {
     const { restaurantId } = useParams();
     const [restaurantInfo, setRestaurantInfo] = useState([]);
+    const [unavailableMessage, setUnavailableMessage] = useState('');
 
     const { auth } = useContext(AuthContext);
     const [date, setDate] = useState(new Date());
+
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
     
     const [currentReservation, setCurrentReservation] = useState([]);
 
@@ -43,9 +49,10 @@ function ReserveRestaurant() {
         e.preventDefault();
         if (await getCheckIfAvailable()) {
             handleReservation();
+            history.replace(from);
             window.location.reload();
         } else {
-            console.log('This date is not available!');
+           setUnavailableMessage('This date is not available!');
         }
     }
 
@@ -88,8 +95,10 @@ function ReserveRestaurant() {
                 'restaurantPrice': restaurantInfo.price
             },
         })
+        history.replace(from);
         console.log(res.data)
         setDateAsUnavailable();
+        
     }
 
     async function setDateAsUnavailable(){
@@ -115,19 +124,19 @@ function ReserveRestaurant() {
     }
 
     return (
-        <div className="register-login-card">
+        <div className="register-login-card"> 
             {
-                currentReservation.length >= 1 ? <h1> You currently have a reservation at {currentReservation[0].restaurantName} on {currentReservation[0].date}. If you changed your mind, you cancel the current one. </h1> :
+                currentReservation.length >= 1 ? <h1> You currently have a reservation at {currentReservation[0].restaurantName} on {currentReservation[0].date}. If you changed your mind, you cancel the current one. </h1> : 
                     <form onSubmit={isDateAvailable} className="form-control">
                         <div >
                             <h1> Your reservation at {restaurantInfo.name} is almost done!</h1>
                             <label htmlFor="name">Please select the desired date: </label>
                             <DatePicker selected={date} onChange={handleDateChange} locale="en-GB" dateFormat="dd/MM/yyyy" className={'input-form'} />
+                            {unavailableMessage.length ? <h1>{unavailableMessage}</h1> : null }
                             <button type="submit" className="auth-button-style" >Reserve</button>
                         </div>
                     </form>
             }
-
         </div>
     )
 }

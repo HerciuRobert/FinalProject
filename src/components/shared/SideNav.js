@@ -1,19 +1,16 @@
 
 import React, { useState, useContext, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import '../App.css';
 import AuthContext from '../auth/AuthContext';
 
-// import ReserveRestaurant from '../restaurants/ReserveRestaurant';
-// import ReserveBand from '../bands/ReserveBand';
-// import ReserveOther from '../other/ReserveOther';
 import axios from 'axios';
 
 
 function SideNav() {
     const { auth } = useContext(AuthContext);
 
-    let [reservedRestaurant, setReservedRestaurant] = useState([]);
+    let [reservation, setReservedRestaurant] = useState([]);
+    const [total, setTotal] = useState('');
 
 
     useEffect(() => {
@@ -27,7 +24,7 @@ function SideNav() {
     }
 
     function updateEventName() {
-        const res = axios('/reservations/' + reservedRestaurant[0].id, {
+        const res = axios('/reservations/' + reservation[0].id, {
             method: 'PATCH',
             data: {
                 'event_name': getNewName(),
@@ -41,16 +38,24 @@ function SideNav() {
     }
 
     async function handleDelete(e) {
-        await axios.delete('/reservations/' + reservedRestaurant[0].id)
+        await axios.delete('/reservations/' + reservation[0].id)
         window.location.reload();
     }
 
     function calculatePrice(){
        let participants =  document.getElementById('participant-number').value;
-       let totalRestaurant = participants * reservedRestaurant[0].restaurantPrice;
-       let total = totalRestaurant + reservedRestaurant[0].bandPrice + reservedRestaurant[0].otherPrice;
+       let totalRestaurant = participants * reservation[0].restaurantPrice;
+       let totalBand = reservation[0].bandPrice;
+       let totalOther = reservation[0].otherPrice;
+       if(totalBand === undefined) {
+           totalBand=0;
+       }
+       if(totalOther===undefined)
+{
+    totalOther=0;
+}   
+setTotal(totalRestaurant + totalBand + totalOther);
        console.log(total);
-       return total;
     }
 
     return (
@@ -59,67 +64,67 @@ function SideNav() {
                 <div className="side-nav-card">
                     <article className="side-nav">
                         <div>
-                            {reservedRestaurant.map((list) =>
+                            {reservation.map((list) =>
                                 <h1 onLoad={getRestaurantReservationByUserId} key={`${list.event_name}`}>{list.event_name}</h1>)
 
                             }
 
-                            {(reservedRestaurant.length && auth ?
+                            {(reservation.length && auth ?
                                 <input
                                     type="text"
                                     id="edit-name"
                                     className="label"
                                 /> : null)}
-                            {(reservedRestaurant.length && auth ?
+                            {(reservation.length && auth ?
                                 <a href className="button-style" onClick={updateEventName}>Edit event name</a>
                                 :
                                 null
                             )}
 
-                            <h4>Restaurant:         {reservedRestaurant.map((list) =>
+                            <h4>Restaurant:         {reservation.map((list) =>
                                 <h4 onLoad={getRestaurantReservationByUserId} key={`${list.restaurantName}`}>{list.restaurantName}</h4>)
 
                             }
                             </h4>
 
-                            <p>Restaurant expenses:         {reservedRestaurant.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.restaurantPrice}`}>{list.restaurantPrice}</h4>)
+                            <p>Restaurant expenses:         {reservation.map((list) =>
+                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.restaurantPrice}`}>{list.restaurantPrice}&euro;</h4>)
 
                             }
                             </p>
 
                             <label htmlFor="participant-number">Number of participants:</label> <input type="number" id="participant-number" className="label" placeholder="1" min="1" defaultValue="1"/>
 
-                            <h4>Band:         {reservedRestaurant.map((list) =>
+                            <h4>Band:         {reservation.map((list) =>
                                 <h4 onLoad={getRestaurantReservationByUserId} key={`${list.bandName}`}>{list.bandName}</h4>)
 
                             }
                             </h4>
 
-                            <p>Band expenses:         {reservedRestaurant.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.bandPrice}`}>{list.bandPrice}</h4>)
+                            <p>Band expenses:         {reservation.map((list) =>
+                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.bandPrice}`}>{list.bandPrice}&euro;</h4>)
 
                             }
                             </p>
-                            <h4>Activity:         {reservedRestaurant.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.otherName}`}>{list.otherName}</h4>)
+                            <h4>Activity:         {reservation.map((list) =>
+                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.otherName}`}>{list.otherName}&euro;</h4>)
 
                             }
                             </h4>
 
-                            <p>Activity expenses:         {reservedRestaurant.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.otherPrice}`}>{list.otherPrice}</h4>)
+                            <p>Activity expenses:         {reservation.map((list) =>
+                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.otherPrice}`}>{list.otherPrice}&euro;</h4>)
 
                             }
                             </p>
 
-                            {(reservedRestaurant.length && auth ?
+                            {(reservation.length && auth ?
                                 <a href className="button-style" onClick={calculatePrice}>Calculate price</a>
                                 :
                                 null
                             )}
-                            <p><strong>Total expenses: {calculatePrice}</strong></p>
-                            {(reservedRestaurant.length && auth ?
+                            <p><strong>Total expenses: {total}&euro;</strong></p>
+                            {(reservation.length && auth ?
                                 <div>
                                     <a className="button-style" onClick={handleDelete}>Delete event</a>
                                 </div>

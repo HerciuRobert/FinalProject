@@ -9,13 +9,6 @@
       "id": 1
     },
     {
-      "email": "herciu.robert@gmail.com",
-      "firstname": "",
-      "lastname": "",
-      "password": "12",
-      "id": 2
-    },
-    {
       "email": "a@a.com",
       "firstname": "1",
       "lastname": "1",
@@ -25,19 +18,6 @@
     }
   ],
   "reservations": [
-    {
-      "id": 1,
-      "event_name": "My event",
-      "user_email": "a@a.com",
-      "restaurantId": "2",
-      "date": "22/05/2020",
-      "restaurantName": "Sergiana Event Center - Salonul Ivory",
-      "restaurantPrice": 95,
-      "bandName": "Lovis Events",
-      "bandPrice": 3200,
-      "otherName": "Lasting Events Photo Booth",
-      "otherPrice": 500
-    }
   ],
   "notavailable_restaurants": [
     {
@@ -129,6 +109,56 @@
       "id": 17,
       "restaurantId": "2",
       "busy": "2#22/05/2020"
+    },
+    {
+      "id": 18,
+      "restaurantId": "1",
+      "busy": "1#19/05/2020"
+    },
+    {
+      "id": 19,
+      "restaurantId": "1",
+      "busy": "1#15/05/2020"
+    },
+    {
+      "id": 20,
+      "restaurantId": "1",
+      "busy": "1#24/05/2020"
+    },
+    {
+      "id": 21,
+      "restaurantId": "1",
+      "busy": "1#17/05/2020"
+    },
+    {
+      "id": 22,
+      "restaurantId": "1",
+      "busy": "1#27/06/2020"
+    },
+    {
+      "id": 23,
+      "restaurantId": "1",
+      "busy": "1#23/05/2020"
+    },
+    {
+      "id": 24,
+      "restaurantId": "1",
+      "busy": "1#29/04/2020"
+    },
+    {
+      "id": 25,
+      "restaurantId": "1",
+      "busy": "1#21/05/2020"
+    },
+    {
+      "id": 26,
+      "restaurantId": "1",
+      "busy": "1#22/05/2020"
+    },
+    {
+      "id": 27,
+      "restaurantId": "1",
+      "busy": "1#30/05/2020"
     }
   ],
   "notavailable_bands": [
@@ -181,6 +211,26 @@
       "id": 10,
       "bandId": "2",
       "busy": "2#22/05/2020"
+    },
+    {
+      "id": 11,
+      "bandId": "1",
+      "busy": "1#19/05/2020"
+    },
+    {
+      "id": 12,
+      "bandId": "4",
+      "busy": "4#21/05/2020"
+    },
+    {
+      "id": 13,
+      "bandId": "3",
+      "busy": "3#22/05/2020"
+    },
+    {
+      "id": 14,
+      "bandId": "3",
+      "busy": "3#30/05/2020"
     }
   ],
   "notavailable_other": [
@@ -253,6 +303,21 @@
       "id": 14,
       "otherId": "2",
       "busy": "2#22/05/2020"
+    },
+    {
+      "id": 15,
+      "otherId": "2",
+      "busy": "2#19/05/2020"
+    },
+    {
+      "id": 16,
+      "otherId": "1",
+      "busy": "1#22/05/2020"
+    },
+    {
+      "id": 17,
+      "otherId": "4",
+      "busy": "4#30/05/2020"
     }
   ],
   "restaurants": [
