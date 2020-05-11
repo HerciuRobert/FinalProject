@@ -24,7 +24,7 @@ function SideNav() {
     }
 
     function updateEventName() {
-        const res = axios('/reservations/' + reservation[0].id, {
+        axios('/reservations/' + reservation[0].id, {
             method: 'PATCH',
             data: {
                 'event_name': getNewName(),
@@ -42,20 +42,19 @@ function SideNav() {
         window.location.reload();
     }
 
-    function calculatePrice(){
-       let participants =  document.getElementById('participant-number').value;
-       let totalRestaurant = participants * reservation[0].restaurantPrice;
-       let totalBand = reservation[0].bandPrice;
-       let totalOther = reservation[0].otherPrice;
-       if(totalBand === undefined) {
-           totalBand=0;
-       }
-       if(totalOther===undefined)
-{
-    totalOther=0;
-}   
-setTotal(totalRestaurant + totalBand + totalOther);
-       console.log(total);
+    function calculatePrice() {
+        let participants = document.getElementById('participant-number').value;
+        let totalRestaurant = participants * reservation[0].restaurantPrice;
+        let totalBand = reservation[0].bandPrice;
+        let totalOther = reservation[0].otherPrice;
+        if (totalBand === undefined) {
+            totalBand = 0;
+        }
+        if (totalOther === undefined) {
+            totalOther = 0;
+        }
+        setTotal(totalRestaurant + totalBand + totalOther);
+        console.log(total);
     }
 
     return (
@@ -73,57 +72,62 @@ setTotal(totalRestaurant + totalBand + totalOther);
                                 <input
                                     type="text"
                                     id="edit-name"
-                                    className="label"
+                                    className="edit-name-label"
                                 /> : null)}
                             {(reservation.length && auth ?
                                 <a href className="button-style" onClick={updateEventName}>Edit event name</a>
                                 :
                                 null
                             )}
-
-                            <h4>Restaurant:         {reservation.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.restaurantName}`}>{list.restaurantName}</h4>)
-
-                            }
-                            </h4>
-
-                            <p>Restaurant expenses:         {reservation.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.restaurantPrice}`}>{list.restaurantPrice}&euro;</h4>)
+                            <h5>Save the date:         {reservation.map((list) =>
+                                <h5 onLoad={getRestaurantReservationByUserId} key={`${list.date}`}>{list.date}</h5>)
 
                             }
-                            </p>
+                            </h5>
 
-                            <label htmlFor="participant-number">Number of participants:</label> <input type="number" id="participant-number" className="label" placeholder="1" min="1" defaultValue="1"/>
-
-                            <h4>Band:         {reservation.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.bandName}`}>{list.bandName}</h4>)
+                            <h5>Restaurant:         {reservation.map((list) =>
+                                <h5 onLoad={getRestaurantReservationByUserId} key={`${list.restaurantName}`}>{list.restaurantName}</h5>)
 
                             }
-                            </h4>
+                            </h5>
 
-                            <p>Band expenses:         {reservation.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.bandPrice}`}>{list.bandPrice}&euro;</h4>)
-
-                            }
-                            </p>
-                            <h4>Activity:         {reservation.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.otherName}`}>{list.otherName}&euro;</h4>)
+                            <h5>Restaurant expenses:         {reservation.map((list) =>
+                                <h5 onLoad={getRestaurantReservationByUserId} key={`${list.restaurantPrice}`}>{list.restaurantPrice}&euro;</h5>)
 
                             }
-                            </h4>
+                            </h5>
 
-                            <p>Activity expenses:         {reservation.map((list) =>
-                                <h4 onLoad={getRestaurantReservationByUserId} key={`${list.otherPrice}`}>{list.otherPrice}&euro;</h4>)
+                            <h5 htmlFor="participant-number">Number of participants:</h5> <input type="number" id="participant-number" className="label" placeholder="1" min="1" defaultValue="1" />
+
+                            <h5>Band:         {reservation.map((list) =>
+                                <h5 onLoad={getRestaurantReservationByUserId} key={`${list.bandName}`}>{list.bandName}</h5>)
 
                             }
-                            </p>
+                            </h5>
+
+                            <h5>Band expenses:         {reservation.map((list) =>
+                                <h5 onLoad={getRestaurantReservationByUserId} key={`${list.bandPrice}`}>{list.bandPrice}&euro;</h5>)
+
+                            }
+                            </h5>
+                            <h5>Activity:         {reservation.map((list) =>
+                                <h5 onLoad={getRestaurantReservationByUserId} key={`${list.otherName}`}>{list.otherName}</h5>)
+
+                            }
+                            </h5>
+
+                            <h5>Activity expenses:         {reservation.map((list) =>
+                                <h5 onLoad={getRestaurantReservationByUserId} key={`${list.otherPrice}`}>{list.otherPrice}&euro;</h5>)
+
+                            }
+                            </h5>
 
                             {(reservation.length && auth ?
                                 <a href className="button-style" onClick={calculatePrice}>Calculate price</a>
                                 :
                                 null
                             )}
-                            <p><strong>Total expenses: {total}&euro;</strong></p>
+                            <h5><strong>Total expenses: {total}&euro;</strong></h5>
                             {(reservation.length && auth ?
                                 <div>
                                     <a className="button-style" onClick={handleDelete}>Delete event</a>

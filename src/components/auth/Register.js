@@ -58,18 +58,18 @@ function Register() {
         setSuccessful(false);
         const isInvalid = validateData() || await checkDatabaseUser();
 
-        if(!isInvalid) {
+        if (!isInvalid) {
             setDirty(false);
             try {
                 const res = await axios.post('/users', formData);
-                    console.log(res);
-                    setAuth(res.data.email);
-                    localStorage.setItem('auth', res.data.email)
-                    setSuccessful(true);
-                    history.replace(from);
-                } catch(e) {
-                    console.log(e.res.data.message);
-                }
+                console.log(res);
+                setAuth(res.data.email);
+                localStorage.setItem('auth', res.data.email)
+                setSuccessful(true);
+                history.replace(from);
+            } catch (e) {
+                console.log(e.res.data.message);
+            }
         }
     }
 
@@ -78,32 +78,32 @@ function Register() {
         const newError = { ...formError };
         let isInvalid = false;
 
-        for(const input of inputs) {
+        for (const input of inputs) {
             if (!formData[input]) {
-                    newError[input]= errorMessages[input];
-                    isInvalid = true;
-                }
-            }
-        
-            if(formData.password !== formData['retype-password']) {
-                newError['different-passwords'] = errorMessages['different-passwords'];
+                newError[input] = errorMessages[input];
                 isInvalid = true;
             }
-            
-            if((!formData.email.includes('@')) && (formData.password !== formData['retype-password'])) {
-                    newError['invalid-email'] = errorMessages['invalid-email'];
-                    isInvalid = true;
-                }
-        
+        }
+
+        if (formData.password !== formData['retype-password']) {
+            newError['different-passwords'] = errorMessages['different-passwords'];
+            isInvalid = true;
+        }
+
+        if ((!formData.email.includes('@')) && (formData.password !== formData['retype-password'])) {
+            newError['invalid-email'] = errorMessages['invalid-email'];
+            isInvalid = true;
+        }
+
         setFormError(newError);
         return isInvalid;
     }
 
     async function checkDatabaseUser() {
         const auth = await axios.get('/users?email=' + formData.email)
-        .then(res => res.data);
+            .then(res => res.data);
 
-        if(auth.length) {
+        if (auth.length) {
             setGlobalError("User already exists!");
             return true;
         }
@@ -113,21 +113,21 @@ function Register() {
     function handleInputChange(e) {
         // console.log(e.currentTarget.id, e.currentTarget.value);
         setDirty(true);
-        
+
         setFormData({
             ...formData,
             [e.currentTarget.id]: e.currentTarget.value
         });
-        const newError = { 
-            ...formError, 
-            [e.currentTarget.id]:'' 
-    };
-        if(e.currentTarget.id === 'password' || e.currentTarget.id === 'retype-password') {
-            newError['different-passwords']= '';
+        const newError = {
+            ...formError,
+            [e.currentTarget.id]: ''
+        };
+        if (e.currentTarget.id === 'password' || e.currentTarget.id === 'retype-password') {
+            newError['different-passwords'] = '';
         }
 
-        if(!(/@/.test(formData.email))) {
-            newError['invalid-email']= '';
+        if (!(/@/.test(formData.email))) {
+            newError['invalid-email'] = '';
         }
 
         setFormError(newError);
@@ -138,99 +138,101 @@ function Register() {
     return (
         <>
 
-        <form onSubmit={ handleSubmit } className="form-control">
-            <h1>Welcome to E-Z Planner</h1>
-            {/* <div className='invalid-feedback'>
+            <form onSubmit={handleSubmit} className="form-control">
+                <h1>Welcome!</h1>
+                <h2>Please register before planning your first event!</h2>
+                {/* <div className='invalid-feedback'>
                 { user.email } already exists!
             </div> */}
-            <div className="register-login-card">
-                { (globalErrorMessage ?
-                    <div className="invalid-feedback">
-                        This account already exists!
+                <div className="register-login-card">
+
+                    {(globalErrorMessage ?
+                        <div className="invalid-feedback">
+                            This account already exists!
                     </div>
-                : null) }
-                { (isSuccesful ?
-                    <div className="valid-feedback">
-                        Your account was created succesfully!
+                        : null)}
+                    {(isSuccesful ?
+                        <div className="valid-feedback">
+                            Your account was created succesfully!
                     </div>
-                : null) }
-                <div>
-                    <label htmlFor="email">Email Address: </label>
-                    <input 
-                        onChange={ handleInputChange } 
-                        value={ formData.email } 
-                        type="email" 
-                        className={'input-form' + (formError.email || formError['invalid-email'] ? ' is-invalid' : '') } 
-                        id="email" 
-                        placeholder="Email" 
-                    />
-                    <div className='invalid-feedback'>
-                        { formError.email }
-                        { formError.email ? <br /> : '' }
-                        { formError["invalid-email"] }
+                        : null)}
+                    <div>
+                        <label htmlFor="email">Email Address: </label>
+                        <input
+                            onChange={handleInputChange}
+                            value={formData.email}
+                            type="email"
+                            className={'input-form' + (formError.email || formError['invalid-email'] ? ' is-invalid' : '')}
+                            id="email"
+                            placeholder="Email"
+                        />
+                        <div className='invalid-feedback'>
+                            {formError.email}
+                            {formError.email ? <br /> : ''}
+                            {formError["invalid-email"]}
+                        </div>
                     </div>
+                    <div>
+                        <label htmlFor="firstname">First name: </label>
+                        <input
+                            onChange={handleInputChange}
+                            value={formData.firstname}
+                            className={'input-name' + (formError.firstname ? ' is-invalid' : '')}
+                            type="text"
+                            id="firstname"
+                            placeholder="First name"
+                        />
+                        <div className='invalid-feedback'>
+                            {formError.firstname}
+                        </div>
+                    </div>
+                    <div>
+                        <label htmlFor="lastname">Last name: </label>
+                        <input
+                            onChange={handleInputChange}
+                            value={formData.lastname}
+                            className={'input-name' + (formError.lastname ? ' is-invalid' : '')}
+                            type="text"
+                            id="lastname"
+                            placeholder="Last name"
+                        />
+                        <div className='invalid-feedback'>
+                            {formError.lastname}
+                        </div>
+                    </div>
+                    <div>
+                        <label htmlFor="password">Password: </label>
+                        <input
+                            onChange={handleInputChange}
+                            value={formData.password}
+                            className={'input-form' + (formError.password ? ' is-invalid' : '')}
+                            type="password"
+                            id="password"
+                            placeholder="Password"
+                        />
+                        <div className='invalid-feedback'>
+                            {formError.password}
+                        </div>
+                    </div>
+                    <div>
+                        <label htmlFor="retype-password">Retype password: </label>
+                        <input
+                            onChange={handleInputChange}
+                            value={formData['retype-password']}
+                            className={'input-form' + (formError['retype-password'] || formError['different-passwords'] ? ' is-invalid' : '')}
+                            type="password"
+                            id="retype-password"
+                            placeholder="Retype password"
+                        />
+                        <div className='invalid-feedback'>
+                            {formError['retype-password']}
+                            {formError['retype-password'] ? <br /> : ''}
+                            {formError['different-passwords']}
+                        </div>
+                    </div>
+                    <button type="submit" className="auth-button-style" disabled={!isDirty}>Sign up</button>
                 </div>
-                <div>
-                    <label htmlFor="firstname">First name: </label>
-                    <input 
-                        onChange={ handleInputChange } 
-                        value={ formData.firstname } 
-                        className={'input-name' + (formError.firstname ? ' is-invalid' : '') } 
-                        type="text" 
-                        id="firstname" 
-                        placeholder="First name" 
-                    />
-                    <div className='invalid-feedback'>
-                        { formError.firstname }
-                    </div>
-                </div>
-                <div>
-                    <label htmlFor="lastname">Last name: </label>
-                    <input 
-                        onChange={ handleInputChange } 
-                        value={ formData.lastname } 
-                        className={'input-name' + (formError.lastname ? ' is-invalid' : '') } 
-                        type="text" 
-                        id="lastname" 
-                        placeholder="Last name" 
-                    />
-                    <div className='invalid-feedback'>
-                        { formError.lastname }
-                    </div>
-                </div>
-                <div>
-                    <label htmlFor="password">Password: </label>
-                    <input 
-                        onChange={ handleInputChange } 
-                        value={ formData.password } 
-                        className={'input-form' + (formError.password ? ' is-invalid' : '') } 
-                        type="password" 
-                        id="password" 
-                        placeholder="Password" 
-                    />
-                    <div className='invalid-feedback'>
-                        { formError.password }
-                    </div>
-                </div>
-                <div>
-                    <label htmlFor="retype-password">Retype password: </label>
-                    <input 
-                        onChange={ handleInputChange } 
-                        value={ formData['retype-password'] } 
-                        className={'input-form' + (formError['retype-password'] || formError['different-passwords'] ? ' is-invalid' : '') } 
-                        type="password" 
-                        id="retype-password" 
-                        placeholder="Retype password" 
-                    />
-                    <div className='invalid-feedback'>
-                        { formError['retype-password'] }
-                        { formError['retype-password'] ? <br /> : '' }
-                        { formError['different-passwords'] }
-                    </div>
-                </div>
-                <button type="submit" className="auth-button-style" disabled={ !isDirty }>Sign up</button>
-            </div>
-        </form>
+            </form>
         </>
     );
 }

@@ -74,8 +74,8 @@ function ReserveBand() {
         console.log(res.data);
     }
 
-    async function setDateAsUnavailable(){
-        const res = await axios('/notavailable_bands/', {
+    async function setDateAsUnavailable() {
+        await axios('/notavailable_bands/', {
             method: 'POST',
             data: {
                 'id': '',
@@ -100,20 +100,20 @@ function ReserveBand() {
         <div className="register-login-card">
             {
 
-                currentReservation.length < 1 ? <h1> You must have a restaurant reservation before booking a band </h1> :
+                currentReservation.length < 1 ? <h3 className="invalid-feedback"> You must first have a restaurant reservation before booking a band! </h3> :
                     currentReservation[0].bandName ?
-                        <h1> You currently have a reservation at {currentReservation[0].bandName} on {currentReservation[0].date}.</h1>
+                        <h3 className="invalid-feedback">You already reserved {currentReservation[0].bandName} for {currentReservation[0].date}!</h3>
                         : isAvailable ?
                             <form onSubmit={handleReservation} className="form-control">
                                 <div >
 
-                                    <h1> The band is available at on the date of your restaurant reservation, you can proceed booking {bandInfo.name} for your event!</h1>
+                                    <h3> The band is available on {currentReservation[0].date}, you can proceed with booking {bandInfo.name} !</h3>
                                     <button type="submit" className="auth-button-style" >Reserve</button>
 
                                 </div>
                             </form>
                             :
-                            <h1> The band is not available on the date of your restaurant reservation 😞 </h1>
+                            <h3 className="invalid-feedback"> Sorry, the band is not available on {currentReservation[0].date}... </h3>
             }
 
         </div>

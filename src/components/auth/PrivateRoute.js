@@ -6,17 +6,17 @@ import AuthContext from './AuthContext';
 
 
 function PrivateRoute({ children, ...rest }) {
-    let { auth } = useContext(AuthContext);
-    if (!auth) {
-        auth = localStorage.getItem('auth');
-    }
-    return (
-      <Route
-        {...rest}
-        render={({ location }) =>
-          auth ? (
-            children
-          ) : (
+  let { auth } = useContext(AuthContext);
+  if (!auth) {
+    auth = localStorage.getItem('auth');
+  }
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        auth ? (
+          children
+        ) : (
             <Redirect
               to={{
                 pathname: "/login",
@@ -24,9 +24,9 @@ function PrivateRoute({ children, ...rest }) {
               }}
             />
           )
-        }
-      />
-    );
-  }
+      }
+    />
+  );
+}
 
-  export default PrivateRoute;
+export default PrivateRoute;

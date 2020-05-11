@@ -20,7 +20,6 @@ import PrivateRoute from './auth/PrivateRoute';
 
 import { apiUrl } from '../config';
 
-
 import './App.css';
 
 axios.defaults.baseURL = apiUrl;
@@ -28,24 +27,24 @@ axios.defaults.baseURL = apiUrl;
 
 function App() {
     const [auth, setAuth] = useState(null);
-        //verific daca are in local storage token daca e facem set tokem cu ce vine din storage
+    //verific daca are in local storage token daca e facem set tokem cu ce vine din storage
     useEffect(() => {
         const auth = localStorage.getItem('auth');
-        if(auth) {
+        if (auth) {
             setAuth(auth);
         }
-        
+
 
         axios.defaults.headers.common['x-auth-token'] = auth || '';
     }, []);
 
 
     return (
-        <AuthContext.Provider value={ {auth, setAuth} }>
+        <AuthContext.Provider value={{ auth, setAuth }}>
             <BrowserRouter>
                 <Header />
                 <div className="main-style">
-                <SideNav />
+                    <SideNav />
                     <Route exact path="/">
                         <div>
                             <div>
@@ -71,19 +70,19 @@ function App() {
                     </Route>
                 </div>
                 <PrivateRoute exact path="/restaurants/reserve/:restaurantId/">
-                        <ReserveRestaurant />
+                    <ReserveRestaurant />
                 </PrivateRoute>
                 <PrivateRoute exact path="/bands/reserve/:bandId/">
-                        <ReserveBand />
+                    <ReserveBand />
                 </PrivateRoute>
                 <PrivateRoute exact path="/other/reserve/:otherId/">
-                        <ReserveOther />
+                    <ReserveOther />
                 </PrivateRoute>
                 <Route exact path="/register">
-                        <Register />
+                    <Register />
                 </Route>
                 <Route exact path="/login">
-                        <Login />
+                    <Login />
                 </Route>
             </BrowserRouter>
         </AuthContext.Provider>

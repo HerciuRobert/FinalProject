@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import BandCard  from "./BandCard";
+import BandCard from "./BandCard";
 
 
 function BandList() {
@@ -21,11 +21,11 @@ function BandList() {
             <div className="visualized-category">
                 <h1>Bands</h1>
             </div>
-            <div className="card">  
-                { bands.map(band => <BandCard banda={ band } key={band.id}/>) }
+            <div className="card">
+                {bands.map(band => <BandCard banda={band} key={band.id} />)}
             </div>
         </>
     );
 }
-  
+
 export default BandList;

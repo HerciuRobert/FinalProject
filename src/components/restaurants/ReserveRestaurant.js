@@ -9,6 +9,7 @@ import { useLocation, useHistory } from 'react-router-dom';
 
 import 'react-calendar/dist/Calendar.css';
 import '../Calendar.css';
+import '../auth/Auth.css';
 
 function ReserveRestaurant() {
     const { restaurantId } = useParams();
@@ -21,7 +22,7 @@ function ReserveRestaurant() {
     const history = useHistory();
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
-    
+
     const [currentReservation, setCurrentReservation] = useState([]);
 
     useEffect(() => {
@@ -52,7 +53,7 @@ function ReserveRestaurant() {
             history.replace(from);
             window.location.reload();
         } else {
-           setUnavailableMessage('This date is not available!');
+            setUnavailableMessage('This date is not available!');
         }
     }
 
@@ -72,7 +73,6 @@ function ReserveRestaurant() {
             const entry = element.busy;
             const reservedRestaurantId = entry.split("#")[0];
             const reservedDate = entry.split("#")[1];
-            // debugger;
             if (formatDate(date) === reservedDate && reservedRestaurantId === restaurantId) {
                 console.log('DATA OCUPATA: ' + reservedDate);
                 console.log('busy')
@@ -98,10 +98,10 @@ function ReserveRestaurant() {
         history.replace(from);
         console.log(res.data)
         setDateAsUnavailable();
-        
+
     }
 
-    async function setDateAsUnavailable(){
+    async function setDateAsUnavailable() {
         const res = await axios('/notavailable_restaurants/', {
             method: 'POST',
             data: {
@@ -124,15 +124,15 @@ function ReserveRestaurant() {
     }
 
     return (
-        <div className="register-login-card"> 
+        <div className="register-login-card">
             {
-                currentReservation.length >= 1 ? <h1> You currently have a reservation at {currentReservation[0].restaurantName} on {currentReservation[0].date}. If you changed your mind, you cancel the current one. </h1> : 
+                currentReservation.length >= 1 ? <h3 className="invalid-feedback"> You currently have a reservation at <strong>{currentReservation[0].restaurantName}</strong> on <strong>{currentReservation[0].date}</strong>. If you changed your mind, please cancel the current reservation. </h3> :
                     <form onSubmit={isDateAvailable} className="form-control">
-                        <div >
-                            <h1> Your reservation at {restaurantInfo.name} is almost done!</h1>
+                        <div>
+                            <h3> Your reservation at {restaurantInfo.name} is almost done!</h3>
                             <label htmlFor="name">Please select the desired date: </label>
                             <DatePicker selected={date} onChange={handleDateChange} locale="en-GB" dateFormat="dd/MM/yyyy" className={'input-form'} />
-                            {unavailableMessage.length ? <h1>{unavailableMessage}</h1> : null }
+                            {unavailableMessage.length ? <p className="invalid-feedback">{unavailableMessage}</p> : null}
                             <button type="submit" className="auth-button-style" >Reserve</button>
                         </div>
                     </form>

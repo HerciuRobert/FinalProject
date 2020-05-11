@@ -77,7 +77,7 @@ function ReserveOther() {
         console.log(res.data);
     }
 
-    async function setDateAsUnavailable(){
+    async function setDateAsUnavailable() {
         const res = await axios('/notavailable_other/', {
             method: 'POST',
             data: {
@@ -86,6 +86,7 @@ function ReserveOther() {
                 'busy': otherId + "#" + currentReservation[0].date
             },
         })
+        console.log(res);
     }
 
     async function getOtherById(id) {
@@ -103,20 +104,20 @@ function ReserveOther() {
         <div className="register-login-card">
             {
 
-                currentReservation.length < 1 ? <h1> You must have a restaurant reservation before booking a another activity. </h1> :
+                currentReservation.length < 1 ? <h3 className="invalid-feedback"> You must first have a restaurant reservation before booking an activity! </h3> :
                     currentReservation[0].otherName ?
-                        <h1> You currently have a reservation at {currentReservation[0].otherName} on {currentReservation[0].date}. </h1>
+                        <h3 className="invalid-feedback"> You currently have a reservation at {currentReservation[0].otherName} on {currentReservation[0].date}. </h3>
                         : isAvailable ?
                             <form onSubmit={handleReservation} className="form-control">
                                 <div >
 
-                                    <h1> The activity is available at on the date of your restaurant reservation, you can proceed booking {otherInfo.name} for your event!</h1>
+                                    <h3> The activity is available on {currentReservation[0].date}, you can proceed with booking {otherInfo.name}!</h3>
                                     <button type="submit" className="auth-button-style" >Reserve</button>
 
                                 </div>
                             </form>
                             :
-                            <h1> The activity is not available on the date of your restaurant reservation 😞 </h1>
+                            <h3> Sorry, the activity is not available on {currentReservation[0].date}...</h3>
             }
 
         </div>

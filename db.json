@@ -17,8 +17,7 @@
       "id": 3
     }
   ],
-  "reservations": [
-  ],
+  "reservations": [],
   "notavailable_restaurants": [
     {
       "id": 1,
@@ -84,81 +83,6 @@
       "id": 12,
       "restaurantId": 10,
       "busy": "10#27/06/2020"
-    },
-    {
-      "id": 13,
-      "restaurantId": "1",
-      "busy": "1#10/05/2020"
-    },
-    {
-      "id": 14,
-      "restaurantId": "2",
-      "busy": "2#10/05/2020"
-    },
-    {
-      "id": 15,
-      "restaurantId": "1",
-      "busy": "1#20/05/2020"
-    },
-    {
-      "id": 16,
-      "restaurantId": "2",
-      "busy": "2#21/05/2020"
-    },
-    {
-      "id": 17,
-      "restaurantId": "2",
-      "busy": "2#22/05/2020"
-    },
-    {
-      "id": 18,
-      "restaurantId": "1",
-      "busy": "1#19/05/2020"
-    },
-    {
-      "id": 19,
-      "restaurantId": "1",
-      "busy": "1#15/05/2020"
-    },
-    {
-      "id": 20,
-      "restaurantId": "1",
-      "busy": "1#24/05/2020"
-    },
-    {
-      "id": 21,
-      "restaurantId": "1",
-      "busy": "1#17/05/2020"
-    },
-    {
-      "id": 22,
-      "restaurantId": "1",
-      "busy": "1#27/06/2020"
-    },
-    {
-      "id": 23,
-      "restaurantId": "1",
-      "busy": "1#23/05/2020"
-    },
-    {
-      "id": 24,
-      "restaurantId": "1",
-      "busy": "1#29/04/2020"
-    },
-    {
-      "id": 25,
-      "restaurantId": "1",
-      "busy": "1#21/05/2020"
-    },
-    {
-      "id": 26,
-      "restaurantId": "1",
-      "busy": "1#22/05/2020"
-    },
-    {
-      "id": 27,
-      "restaurantId": "1",
-      "busy": "1#30/05/2020"
     }
   ],
   "notavailable_bands": [
@@ -196,41 +120,6 @@
       "id": 7,
       "bandId": 5,
       "busy": "5#23/05/2020"
-    },
-    {
-      "id": 8,
-      "bandId": "1",
-      "busy": "1#10/05/2020"
-    },
-    {
-      "id": 9,
-      "bandId": "2",
-      "busy": "2#10/05/2020"
-    },
-    {
-      "id": 10,
-      "bandId": "2",
-      "busy": "2#22/05/2020"
-    },
-    {
-      "id": 11,
-      "bandId": "1",
-      "busy": "1#19/05/2020"
-    },
-    {
-      "id": 12,
-      "bandId": "4",
-      "busy": "4#21/05/2020"
-    },
-    {
-      "id": 13,
-      "bandId": "3",
-      "busy": "3#22/05/2020"
-    },
-    {
-      "id": 14,
-      "bandId": "3",
-      "busy": "3#30/05/2020"
     }
   ],
   "notavailable_other": [
@@ -288,36 +177,6 @@
       "id": 11,
       "otherId": 4,
       "busy": "4#27/06/2020"
-    },
-    {
-      "id": 12,
-      "otherId": "1",
-      "busy": "1#10/05/2020"
-    },
-    {
-      "id": 13,
-      "otherId": "3",
-      "busy": "3#10/05/2020"
-    },
-    {
-      "id": 14,
-      "otherId": "2",
-      "busy": "2#22/05/2020"
-    },
-    {
-      "id": 15,
-      "otherId": "2",
-      "busy": "2#19/05/2020"
-    },
-    {
-      "id": 16,
-      "otherId": "1",
-      "busy": "1#22/05/2020"
-    },
-    {
-      "id": 17,
-      "otherId": "4",
-      "busy": "4#30/05/2020"
     }
   ],
   "restaurants": [
@@ -330,7 +189,7 @@
       "price": 92,
       "rating": 4.8,
       "contact": "0732 950 805",
-      "description": "Tess Balroom este o locatie premium, ce pune la dispozitie un set complet de servicii pentru a va putea bucura de fiecare moment al evenimentului, intr-o atmosfera rafinata, calduroasa si plina de stil. Fie ca este vorba de o petrecere privata (nunta, botez, zi de nastere), eveniment corporate (conferinta, gala, lansare de produs), degustare de vinuri sau expozitie, totul poate fi organizat cu succes in cele mai mici detalii."
+      "description": "Tess Balroom is a premium location, which provides a complete set of services to enjoy every moment of the event, in a refined, warm and stylish atmosphere. Whether it is a private party (wedding, baptism, birthday), corporate event (conference, gala, product launch), wine tasting or exhibition, everything can be successfully organized in the smallest details."
     },
     {
       "id": 2,
@@ -341,7 +200,7 @@
       "price": 95,
       "rating": 4.1,
       "contact": "0728 979 956",
-      "description": "Cu candelabre elegante și finisaje rafinate, Salonul Ivory degajă stil. Este cel mai mare salon de la Sergiana Center pentru evenimente în Brașov și poate fi împărțit în 2 spații distincte, autonome, sau se poate folosi ca un salon unitar pentru evenimente mari și somptuoase cu până la 650 de oaspeți. Dotat cu instalație de sonorizare proprie și o retea de videoproiectoare. Este situat la etajul 1 (orientare spre zona verde a parcului)."
+      "description": "With elegant chandeliers and refined finishes, the Ivory Salon exudes style. It is the largest salon at the Sergiana Center for events in Brasov and can be divided into 2 distinct, autonomous spaces, or it can be used as a unitary salon for large and sumptuous events with up to 650 guests. Equipped with its own sound system and a network of video projectors. It is located on the 1st floor (orientation towards the green area of ​​the park)."
     },
     {
       "id": 3,
@@ -352,126 +211,126 @@
       "price": 85,
       "rating": 4.2,
       "contact": "0728 979 956",
-      "description": "Modern cu un aer clasic și accente florale subtile. Un spațiu ideal pentru traininguri și conferințe, dar la fel de potrivit pentru nunți, botezuri și aniversări, pentru că permite diferite moduri de dispunere a meselor cu 6, 8 sau 10 locuri la masă. Este situat la mezanin 1 (orientare spre Bd. Kogălniceanu)."
+      "description": "Modern with a classic air and subtle floral accents. An ideal space for trainings and conferences, but equally suitable for weddings, baptisms and anniversaries, because it allows different ways of arranging tables with 6, 8 or 10 seats at the table. It is located on mezzanine 1 (orientation towards Kogălniceanu Blvd.)."
     },
     {
       "id": 4,
       "name": "Sergiana Event Center - Salonul Auriu",
       "location": "Centru Civic, Mihail Kogalniceanu 15, Brasov, Romania",
-      "photo": "https://picsum.photos/300/200",
+      "photo": "./images/sergiana-auriu.jpg",
       "capacity": 260,
       "price": 90,
       "rating": 4.8,
       "contact": "0728 979 956",
-      "description": "Luminos și fermecător! Cu un aer deosebit și decorațiuni în cromatică interesantă. Ideal pentru conferinţe și simpozioane, dar la fel de bine poate găzdui petreceri de amploare. Poate fi personalizat în funcție de cerințele și așteptările tale. Cu mese de 6, 8 sau 10 locuri, în varianta de party.  Este situat la mezanin 2 (orientare spre Bdul M. Kogălniceanu)."
+      "description": "Bright and charming! With a special air and decorations in interesting colors. Ideal for conferences and symposia, but can also host large parties. It can be customized according to your requirements and expectations. With tables for 6, 8 or 10 seats, in the party version. It is located on mezzanine 2 (orientation towards M. Kogălniceanu Blvd.)."
     },
     {
       "id": 5,
       "name": "Sergiana Event Center - Salonul Pearl",
       "location": "Centru Civic, Mihail Kogalniceanu 15, Brasov, Romania",
-      "photo": "https://picsum.photos/300/200",
+      "photo": "./images/sergiana-pearl.jpg",
       "capacity": 110,
       "price": 68,
       "rating": 4,
       "contact": "0728 979 956",
-      "description": "Atmosferă intimă și delicată. Ring de dans central și dispunere a meselor cu 6, 8 sau 10 locuri Perfect pentru evenimente mici cu o zonă dedicată de coffee-break și lunch. Permite amenajarea separată a unui loc de joacă pentru copii, cu jucării gonflabile și mobilier special. Este situat la etajul 1 (orientare spre terenurile de sport )."
+      "description": "Intimate and delicate atmosphere. Central dance floor and table arrangement with 6, 8 or 10 seats Perfect for small events with a dedicated coffee-break and lunch area. It allows a separate playground for children, with inflatable toys and special furniture. It is located on the 1st floor (orientation towards sports fields)."
     },
     {
       "id": 6,
       "name": "Complex 3 Stejari",
-      "location": "Str. Col. Kiss Snador nr. 102, Dambu' Morii, Romania",
-      "photo": "https://picsum.photos/300/200",
+      "location": "Str. Col. Kiss Sandor nr. 102, Dambu' Morii, Romania",
+      "photo": "./images/complex-3-stejari.jpg",
       "capacity": 170,
       "price": 70,
       "rating": 4.4,
       "contact": "0758 111 016",
-      "description": "Amplasat intr-o zona ferita de aglomeratia urbana, Restaurantul Stejarii pune la dispozitia dumneavoastra, intr-o ambianta eleganta si rafinata, 170 de locuri pentru organizarea unui eveniment deosebit din viata dumneavoastra. Maestrul bucatar va va surprinde cu cele mai delicioase preparate ale bucatariei traditionale si internationale."
+      "description": "Escape in the middle of nature to spend the Holy Easter holidays in a relaxed and family atmosphere, but also very close to the attractions of Brasov or the tourist resorts on Prahova Valley. And this year we have prepared a complex entertainment program for the little ones who will play in specially arranged places (indoor-outdoor) under the supervision of our animators disguised as fairy tale characters, thus giving parents the chance to relax in a the warm and spiritual atmosphere conducive to the Easter holidays."
     },
     {
       "id": 7,
       "name": "Restaurant Ambient",
       "location": "Bulevardul Iuliu Maniu Nr. 27, Brasov, Romania",
-      "photo": "https://picsum.photos/300/200",
+      "photo": "./images/restaurant-ambient.jpg",
       "capacity": 150,
       "price": 78,
       "rating": 4.2,
       "contact": "0268 471 747",
-      "description": "Contam cu 17 ani de experienta in organizarea de evenimente speciale si suntem experti in a planifica, impreuna cu voi, pana la cel mai mic detaliu, pentru ca ziua sarbatorita cu noi sa fie una de neuitat si sa ramana mereu vie in memoria si inima dumneavoastra."
+      "description": "You will be welcome at any time in our restaurant, where, sitting in one of the 150 seats, the flavors of international and Rmanian cuisine will take your senses on an unforgettable culinary journey. The comfortable space where the cuisine and the cellar are in perfect harmony, the saloons have been traditionally decorated, with elegant and discreet, with high quality furniture in italian style."
     },
     {
       "id": 8,
       "name": "Grand Restaurant - Salon Modern",
       "location": "Str. Mihail Kogalniceanu Nr. 15, Brasov, Romania",
-      "photo": "https://picsum.photos/300/200",
+      "photo": "./images/grand-restaurant.jpg",
       "capacity": 350,
       "price": 75,
       "rating": 4.4,
       "contact": "0268 336 795",
-      "description": "La Grand Restaurant veti gasi pe langa un meniu sanatos, echilibrat, preturi accesibile, o servire prompta si un prilej pentru socializare si deconectare, iar ambianta va face ca toate acestea sa va ofere momente si amintiri minunate.Fie ca a sosit momentul sa va uniti destinul cu jumatatea dumneavoastra, fie ca doriti sa va bucurati alaturi de rude si prieteni la sosirea unui nou membru in familie, sau pur si simplu, vreti sa petreceti o seara de neuitat alaturi de colegi, sau un bal ca in povesti, acest eveniment special trebuie sa aiba loc intr-un cadru memorabil."
+      "description": "The MODERN salon, the most spacious of the 4 salons, has a capacity between 180 and 350 people and is located on the 1st floor, with entrance from B-dul. Mihail Kogalniceanu. With an excellent attention to detail, this salon keeps the classic line, but the modernist paintings and details differentiate it."
     },
     {
       "id": 9,
       "name": "Ramada by Wyndham Brasov",
       "location": "Calea Bucurestiului, Nr. 13, Sacele, Brasov, Romania",
-      "photo": "https://picsum.photos/300/200",
+      "photo": "./images/ramada-restaurant.jpg",
       "capacity": 210,
       "price": 65,
       "rating": 3.6,
       "contact": "0268 508 009",
-      "description": "Hotelul Ramada va pune la dispozitie doua restaurante, locatii perfecte pentru a sarbatori evenimente unice, in compania invitatilor dumneavoastra.Fie ca este o petrecere numeroasa sau restransa, traditionala sau moderna, organizatorii nostri de evenimente vor fi la dispozitia dumneavoastra asigurandu-va de atentia lor pentru orice detaliu."
+      "description": "Your worries will become our worries, dealing with the responsibility and professionalism that characterize us and offer us the leading position in the field. Elegant restaurants, prompt and distinguished service, quality and finesse of menus recommend the Ramada Brasov hotel as the perfect place for any celebration, and because your time is precious, we are with you and share our experience in creating the desired event."
     },
     {
       "id": 10,
       "name": "Restaurant Garden Club",
       "location": "Bulevardul Grivitei, Nr. A48, Stupini, Romania",
-      "photo": "https://picsum.photos/300/200",
+      "photo": "./images/garden-club-restaurant.jpg",
       "capacity": 220,
       "price": 82,
       "rating": 4.3,
       "contact": "0268 470 777",
-      "description": "Piscina Garden Club este situată in curtea complexului si este in aer liber. Confortul, dotările si serviciile oferite vor face ca evenimentele organizate în locaţia noastră să fie de neuitat. Vă punem la dispoziţie logistica necesară pentru organizarea de evenimente, prin cortul de evenimente cu o capacitate de 220 de persoane, aşezat în faţa piscinei. Dincolo de masa excelentă şi serviciul impecabil atuul nostru este ambianţa placută, intimă şi relaxantă."
+      "description": "For the organization of an important event we provide you with all the necessary logistics: event tent with a capacity of 100-250 people seated in front of the pool that will create an enchanting atmosphere, restaurant with all the appropriate facilities that proposes different menu options to satisfy the most refined tastes and more than enough guest rooms. Beyond the excellent meal and the impeccable service, our advantage is the pleasant, intimate and relaxing ambiance."
     }
   ],
   "bands": [
     {
       "id": 1,
       "name": "Charm Band",
-      "photo": "https://picsum.photos/300/200",
+      "photo": "./images/charm-band.jpg",
       "price": 2000,
-      "description": "Trupa de cover Charm Band susține show-uri 100% Live, pentru toate tipurile de petreceri private: nunți, botezuri, petreceri corporate, dar și concerte private. Avem evenimente in toată tara, așadar vom fi fericiți sa venim și in orașul tău. Specializați in evenimente artistice, va stam la dispozitie cu cele mai diverse genuri muzicale, de la muzica anilor ‘70 și pana la cele mai noi hituri.",
+      "description": "The cover band Charm Band supports 100% Live shows, for all types of private parties: weddings, baptisms, corporate parties, but also private concerts. We have events all over the country, so we will be happy to come to your city as well. Specializing in artistic events, we are at your disposal with the most diverse musical genres, from the music of the '70s to the latest hits.",
       "contact": "0766 345 724"
     },
     {
       "id": 2,
       "name": "Lovis Events",
-      "photo": "https://picsum.photos/300/200",
+      "photo": "./images/lovis-band.jpg",
       "_notavailable": [],
-      "price": 3200,
-      "description": "Prestam servicii muzicale complete, atat ca trupa de cover, avand in componenta solisti de muzica usoara romaneasca si internationala, cat si ca formatie de muzica de petrecere, cu instrumentisti profesionisti si solisti de muzica populara. Dispunem de instrumente si echipamente de ultima generatie ce definesc o sonorizare excelenta, schela de lumini, fum greu pentru dansul mirilor, gheata carbonica pentru pahare sampanie dar si de alte servicii complementare, alaturi de care distractia va fi garantata.",
+      "price": 3000,
+      "description": "Let's get to know each other! We are a live music band and we offer music services for any type of event. You can call on our services to request a wedding band or a christening band. Also, we can be with you with the music band at any anniversary party, company party, corporate party. Most of our musical genres are included in our repertoire, so we can adapt our program to any occasion. We provide complete musical services, both as a cover band, with Romanian and international light music soloists, as well as as a party music band, with professional instrumentalists and folk music soloists. We have state-of-the-art instruments and equipment that define an excellent sound system, light scaffolding, heavy smoke for the bride and groom's dance, carbonic ice for champagne glasses but also other complementary services, with which fun will be guaranteed.",
       "contact": "0726 193 808"
     },
     {
       "id": 3,
       "name": "Trupa Lov",
-      "photo": "https://picsum.photos/300/200",
+      "photo": "./images/trupa-lov.jpg",
       "price": 2500,
-      "description": "Avem un playlist de petrecere variat si inedit, adaptabil oricarei tematici de nunta, astfel ca invitatii tai se vor simti nu doar ca la cea mai tare petrecere alaturi de o super trupa, ci vor trai un memorabil spectacol live direct pe ringul de dans.",
+      "description": "We have a varied and unique party playlist, adaptable to any wedding theme, so your guests will feel not only at the hottest party with a super band, but will live a memorable live show live on the dance floor. Regardless of the city where you get married, we are  the cover band  for the wedding you can count on! We just need to know a few details about the hall in advance. It will be enough for us to set up a super show throughout the event!",
       "contact": "0769 219 050"
     },
     {
       "id": 4,
       "name": "Nicoleta Oancea & Band",
-      "photo": "https://picsum.photos/300/200",
-      "price": 3700,
-      "description": "Nicoleta Oancea & Band este o trupa de cover formata din 6 muzicieni talentati, cu experienta care au concertat pe scene din intreaga tara. Echipa noastra este formata din solist vocal, backing vocals, basist, chitarist, clapar/pianist, tobosar si are in spate un staff complet: booking agent, inginer de sunet, tehnicieni, tour manager. Pentru a oferi un spectacol pe masura, colaboram doar cu oameni profesionisti, incepand de la echipa tehnica (sunet, scena, lumini) pana la DJ, oameni pasionati care se implica in meseria lor.",
+      "photo": "./images/Nicoleta-oancea-band.jpg",
+      "price": 2200,
+      "description": "Nicoleta Oancea & Band is a cover band made up of 6 talented, experienced musicians who have performed on stages across the country. Our team consists of vocal soloist, backing vocals, bassist, guitarist, keyboardist / pianist, drummer and has a full staff behind it: booking agent, sound engineer, technicians, tour manager. In order to offer a tailor-made show, we collaborate only with professional people, starting from the technical team (sound, stage, lights) to DJs, passionate people who get involved in their profession.",
       "contact": "0722 179 782"
     },
     {
       "id": 5,
       "name": "Blacklight Band",
-      "photo": "https://picsum.photos/300/200",
-      "price": 2800,
-      "description": "Formatie nunta din Bucuresti, cover band, trupa cover sau alchimisti ai bunei dispozitii, oricum ati vrea sa ne numim – Blacklight Band este o echipa de muzicieni cu palmares bogat, intalniți si pe marile scene, figuri cunoscute publicului si in urma multor aparitii televizate. Abilitatile muzicale ale membrilor le permit abordarea unui repertoriu foarte variat, cantat in engleza, romana, italiana, spaniola, ce strabate o paleta stilistica multicolora, de la marile hituri internationale pana la indragitele melodii romanesti, trecand prin pop music, disco, dance, blues, rock, rhythm and blues, soul, reggae, cantece italiene si latino; de la piese nemuritoare pana la ultimele aparitii ! Cu alte cuvinte, formatie pentru evenimente la superlativ !",
+      "photo": "./images/blacklight-band.jpg",
+      "price": 1800,
+      "description": "Wedding band from Bucharest, cover band, cover band or alchemists of good mood, whatever you want to call us - Blacklight Band is a team of musicians with a rich record, met on the big stages, figures known to the public and after many television appearances. The musical abilities of the members allow them to approach a very varied repertoire, sung in English, Romanian, Italian, Spanish, which crosses a multicolored stylistic palette, from the great international hits to the beloved Romanian songs, passing through pop music, disco, dance, blues , rock, rhythm and blues, soul, reggae, cantece italiene si latino; from immortal pieces to the latest appearances! In other words, superlative band for events!",
       "contact": "0744 326 258"
     }
   ],
@@ -479,29 +338,33 @@
     {
       "id": 1,
       "name": "Make-up Artist & Hairstyle",
-      "photo": "https://picsum.photos/300/200",
+      "photo": "./images/makeup_artists.jpg",
       "price": 75,
+      "description": "During this challenging and unprecenteded time we won't be able to offer trials at the moment, but please know that holding your wedding date with only 75 euros is not only the safest way to ensure you keep your place.  It's refundable against your wedding booking, and also refundable if you decide to cancel before your trial so you've got nothing to lose!",
       "contact": "0725 326 429"
     },
     {
       "id": 2,
       "name": "Lasting Events Photo Booth",
-      "photo": "https://picsum.photos/300/200",
+      "photo": "./images/photo-booth.jpg",
       "price": 500,
+      "description": "Lasting Events Photo Booth is a modern concept of open camera, without walls, with the printing of pictures on the spot. It is a unique way of entertainment for weddings, christenings, anniversary parties, as well as for corporate parties, product launches, fairs, exhibitions. Do you have an event or a party where you will be surrounded by family / friends / colleagues? In this case Funky Photobooth takes care of the good mood of the guests! We come with the equipment, and the guests must come with fun pictures and have fun!",
       "contact": "0799 980 921"
     },
     {
       "id": 3,
       "name": "Flawless Events",
-      "photo": "https://picsum.photos/300/200",
-      "price": 2400,
+      "photo": "./images/flawless-events.jpg",
+      "price": 1000,
+      "description": "As a home-based florist, we don't have the high overhead costs that big retailers do. This lets us offer high quality arrangements at substantial savings. Whether your special day is a backyard shindig or a black tie affair, we'll help you create the perfect floral ambiance.",
       "contact": "0758 527 359"
     },
     {
       "id": 4,
       "name": "Foto y Cafe",
-      "photo": "https://picsum.photos/300/200",
-      "price": 800,
+      "photo": "./images/photo-cafe.jpg",
+      "price": 500,
+      "description": "When photography meets with unique landscape and beautiful people, creativity is bound to knock on the brain doors. As a Transylvania wedding photographer, I am willing to travel across the globe, meet new people, experience new cultures and observe new sceneries. Those days of being limited to a city to create stories are far gone; the era of visiting new places has arrived and bound to last for aeon a time.",
       "contact": "0766 610 055"
     }
   ]
