@@ -22,7 +22,7 @@ function OtherDetails() {
 
     if (other) {
         return (
-            <div className="card-body">
+            <div className="card-body-details">
                 <h1>{other.name}</h1>
                 <p><strong>Price: </strong>{other.price} &euro;/Event</p>
                 <p><strong>Contact: </strong>{other.contact}</p>

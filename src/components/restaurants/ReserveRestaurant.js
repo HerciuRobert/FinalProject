@@ -7,6 +7,8 @@ import en from 'date-fns/locale/en-GB';
 import "react-datepicker/dist/react-datepicker.css";
 import { useLocation, useHistory } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import 'react-calendar/dist/Calendar.css';
 import '../Calendar.css';
 import '../auth/Auth.css';
@@ -102,7 +104,7 @@ function ReserveRestaurant() {
     }
 
     async function setDateAsUnavailable() {
-        const res = await axios('/notavailable_restaurants/', {
+        await axios('/notavailable_restaurants/', {
             method: 'POST',
             data: {
                 'id': '',
@@ -126,7 +128,7 @@ function ReserveRestaurant() {
     return (
         <div className="register-login-card">
             {
-                currentReservation.length >= 1 ? <h3 className="invalid-feedback"> You currently have a reservation at <strong>{currentReservation[0].restaurantName}</strong> on <strong>{currentReservation[0].date}</strong>. If you changed your mind, please cancel the current reservation. </h3> :
+                currentReservation.length >= 1 ? <h3 className="invalid-feedback"> <FontAwesomeIcon className="font-awesome" size="lg" icon={faExclamationTriangle} /> You currently have a reservation at <strong>{currentReservation[0].restaurantName}</strong> on <strong>{currentReservation[0].date}</strong>. If you changed your mind, please cancel the current reservation. </h3> :
                     <form onSubmit={isDateAvailable} className="form-control">
                         <div>
                             <h3> Your reservation at {restaurantInfo.name} is almost done!</h3>

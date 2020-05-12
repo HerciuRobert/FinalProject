@@ -14,7 +14,7 @@
       "lastname": "1",
       "password": "1",
       "retype-password": "1",
-      "id": 3
+      "id": 2
     }
   ],
   "reservations": [],
@@ -23,11 +23,6 @@
       "id": 1,
       "restaurantId": 1,
       "busy": "1#28/06/2020"
-    },
-    {
-      "id": 2,
-      "restaurantId": 2,
-      "busy": "2#27/06/2020"
     },
     {
       "id": 3,
@@ -90,11 +85,6 @@
       "id": 1,
       "bandId": 1,
       "busy": "1#24/05/2020"
-    },
-    {
-      "id": 2,
-      "bandId": 2,
-      "busy": "2#30/05/2020"
     },
     {
       "id": 3,

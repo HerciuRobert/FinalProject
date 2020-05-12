@@ -22,13 +22,15 @@
 }
 
 .button-detail {
-    margin: 0px 10px;
+    margin: 15px 10px;
     list-style: none;
     text-decoration: none;
     color: white;
 }
 
 .logo-style {
+    margin-top: 15px;
+    margin-left: 150px;
     font-size: 2em;
     position: relative;
     text-decoration: none;
@@ -42,4 +44,17 @@ a {
   a:hover {
      color: #f5e9de;
      text-decoration: none;
+  }
+
+  .logo {
+    margin-top: 15px;
+    margin-left: 50px;
+    height: 80px;
+    width: 80px; 
+    position: fixed;
+    transform: rotate(-30deg);
+  }
+
+  .fas .fa-house-user {
+      size: 10em
   }

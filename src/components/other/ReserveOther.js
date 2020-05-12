@@ -4,6 +4,8 @@ import axios from 'axios';
 import AuthContext from '../auth/AuthContext';
 import { useLocation, useHistory } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import 'react-calendar/dist/Calendar.css';
 import '../Calendar.css';
 
@@ -68,7 +70,8 @@ function ReserveOther() {
             method: 'PATCH',
             data: {
                 'otherName': otherInfo.name,
-                'otherPrice': otherInfo.price
+                'otherPrice': otherInfo.price,
+                'otherId': otherInfo.id
             },
         })
         setDateAsUnavailable();
@@ -104,9 +107,9 @@ function ReserveOther() {
         <div className="register-login-card">
             {
 
-                currentReservation.length < 1 ? <h3 className="invalid-feedback"> You must first have a restaurant reservation before booking an activity! </h3> :
+                currentReservation.length < 1 ? <h3 className="invalid-feedback"><FontAwesomeIcon className="font-awesome" size="lg" icon={faExclamationTriangle} /> You must first have a restaurant reservation before booking an activity! </h3> :
                     currentReservation[0].otherName ?
-                        <h3 className="invalid-feedback"> You currently have a reservation at {currentReservation[0].otherName} on {currentReservation[0].date}. </h3>
+                        <h3 className="invalid-feedback"><FontAwesomeIcon className="font-awesome" size="lg" icon={faExclamationTriangle} /> You currently have a reservation at {currentReservation[0].otherName} on {currentReservation[0].date}. </h3>
                         : isAvailable ?
                             <form onSubmit={handleReservation} className="form-control">
                                 <div >
@@ -117,7 +120,7 @@ function ReserveOther() {
                                 </div>
                             </form>
                             :
-                            <h3> Sorry, the activity is not available on {currentReservation[0].date}...</h3>
+                            <h3><FontAwesomeIcon className="font-awesome" size="lg" icon={faExclamationTriangle} /> Sorry, the activity is not available on {currentReservation[0].date}...</h3>
             }
 
         </div>

@@ -4,6 +4,8 @@ import axios from 'axios';
 import AuthContext from '../auth/AuthContext';
 import { useLocation, useHistory } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import 'react-calendar/dist/Calendar.css';
 import '../Calendar.css';
 
@@ -65,7 +67,8 @@ function ReserveBand() {
             method: 'PATCH',
             data: {
                 'bandName': bandInfo.name,
-                'bandPrice': bandInfo.price
+                'bandPrice': bandInfo.price,
+                'bandId': bandInfo.id
             },
         })
         setDateAsUnavailable();
@@ -100,9 +103,9 @@ function ReserveBand() {
         <div className="register-login-card">
             {
 
-                currentReservation.length < 1 ? <h3 className="invalid-feedback"> You must first have a restaurant reservation before booking a band! </h3> :
+                currentReservation.length < 1 ? <h3 className="invalid-feedback"><FontAwesomeIcon className="font-awesome" size="lg" icon={faExclamationTriangle} /> You must first have a restaurant reservation before booking a band! </h3> :
                     currentReservation[0].bandName ?
-                        <h3 className="invalid-feedback">You already reserved {currentReservation[0].bandName} for {currentReservation[0].date}!</h3>
+                        <h3 className="invalid-feedback"><FontAwesomeIcon className="font-awesome" size="lg" icon={faExclamationTriangle} /> You already reserved {currentReservation[0].bandName} for {currentReservation[0].date}!</h3>
                         : isAvailable ?
                             <form onSubmit={handleReservation} className="form-control">
                                 <div >
@@ -113,7 +116,7 @@ function ReserveBand() {
                                 </div>
                             </form>
                             :
-                            <h3 className="invalid-feedback"> Sorry, the band is not available on {currentReservation[0].date}... </h3>
+                            <h3 className="invalid-feedback"><FontAwesomeIcon className="font-awesome" size="lg" icon={faExclamationTriangle} /> Sorry, the band is not available on {currentReservation[0].date}... </h3>
             }
 
         </div>

@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import AuthContext from '../auth/AuthContext';
-
+import logo from './logo.png';
 import './Header.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouseUser } from '@fortawesome/free-solid-svg-icons';
 
 
 function Header() {
@@ -22,13 +24,14 @@ function Header() {
 
     return (
         <header className="header-all">
+            <img className="logo" src={logo} alt="Logo" />
             <NavLink className="logo-style" to="/">E-Z Planner</NavLink>
             <nav>
                 <ul className="header-menu">
                     {(auth ?
                         <>
                             <li className="button-detail">
-                                <NavLink activeClassName="active" exact to="/">Home</NavLink>
+                                <NavLink activeClassName="active" exact to="/"><FontAwesomeIcon className="font-awesome" size="lg" icon={faHouseUser} /></NavLink>
                             </li>
                             <a href="/" className="button-detail" onClick={handleLogout}> Logout</a>
                         </>

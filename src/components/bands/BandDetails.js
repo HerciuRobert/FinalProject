@@ -21,7 +21,7 @@ function BandDetails() {
 
     if (band) {
         return (
-            <div className="card-body">
+            <div className="card-body-details">
                 <h1>{band.name}</h1>
                 <p><strong>Price: </strong>{band.price} &euro;/Event</p>
                 <p><strong>Contact: </strong>{band.contact}</p>
