@@ -94,11 +94,6 @@
       "id": 12,
       "restaurantId": 10,
       "busy": "10#27/06/2020"
-    },
-    {
-      "id": 13,
-      "restaurantId": "7",
-      "busy": "7#12/05/2020"
     }
   ],
   "notavailable_bands": [
