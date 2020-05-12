@@ -20,7 +20,6 @@ function SideNav() {
 
     async function getRestaurantReservationByUserId(id) {
         const reservation = await axios.get('/reservations/?user_email=' + auth).then(res => res.data);
-        console.log(reservation)
         setReservedRestaurant(reservation);
     }
 
@@ -46,13 +45,17 @@ function SideNav() {
     }
 
     async function removeFromNotAvailableDates() {
-        await axios.delete('/notavailable_restaurants?busy=' + reservation[0].restaurantId + '#' + reservation[0].date);
+       let availableAgain = axios.get('/notavailable_restaurants?busy=' + reservation[0].restaurantId + '%23' + reservation[0].date).then(res=>res.data);
+       await axios.delete('/notavailable_restaurants/' + availableAgain[0].id);
+
         if (reservation[0].bandId !== undefined) {
-            await axios.delete('/notavailable_bands?busy=' + reservation[0].bandId + '#' + reservation[0].date);
+            let availableAgain = axios.get('/notavailable_restaurants?busy=' + reservation[0].restaurantId + '%23' + reservation[0].date).then(res=>res.data);
+            await axios.delete('/notavailable_bands/' + availableAgain[0].id);
 
         }
         if (reservation[0].otherId !== undefined) {
-            await axios.delete('/notavailable_other?busy=' + reservation[0].otherId + '#' + reservation[0].date);
+            let availableAgain = axios.get('/notavailable_restaurants?busy=' + reservation[0].restaurantId + '%23' + reservation[0].date).then(res=>res.data);
+            await axios.delete('/notavailable_other/' + availableAgain[0].id);
 
         }
     }

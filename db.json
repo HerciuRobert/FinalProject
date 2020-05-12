@@ -17,7 +17,23 @@
       "id": 2
     }
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "id": 1,
+      "event_name": "testul suprem",
+      "user_email": "herciu.robert@gmail.com",
+      "restaurantId": "7",
+      "date": "12/05/2020",
+      "restaurantName": "Restaurant Ambient",
+      "restaurantPrice": 78,
+      "bandName": "Charm Band",
+      "bandPrice": 2000,
+      "bandId": 1,
+      "otherName": "Lasting Events Photo Booth",
+      "otherPrice": 500,
+      "otherId": 2
+    }
+  ],
   "notavailable_restaurants": [
     {
       "id": 1,
@@ -78,6 +94,11 @@
       "id": 12,
       "restaurantId": 10,
       "busy": "10#27/06/2020"
+    },
+    {
+      "id": 13,
+      "restaurantId": "7",
+      "busy": "7#12/05/2020"
     }
   ],
   "notavailable_bands": [
@@ -110,6 +131,11 @@
       "id": 7,
       "bandId": 5,
       "busy": "5#23/05/2020"
+    },
+    {
+      "id": 8,
+      "bandId": "1",
+      "busy": "1#12/05/2020"
     }
   ],
   "notavailable_other": [
@@ -167,6 +193,11 @@
       "id": 11,
       "otherId": 4,
       "busy": "4#27/06/2020"
+    },
+    {
+      "id": 12,
+      "otherId": "2",
+      "busy": "2#12/05/2020"
     }
   ],
   "restaurants": [
